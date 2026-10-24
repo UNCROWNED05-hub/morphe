@@ -1,0 +1,3926 @@
+{
+  "version_counter": 7,
+  "history": [
+    {
+      "version": "V1",
+      "version_label": "Initial Baseline",
+      "description": "Fresh benchmark dataset loaded",
+      "timestamp": 1792868614.053848,
+      "status": "ACCEPTED",
+      "metrics": {
+        "mean_recall": 0.7969,
+        "mean_precision": 0.5,
+        "mean_latency_ms": 9.6
+      },
+      "op_info": {},
+      "modules": {
+        "MOD_MIXED_CORE": {
+          "id": "MOD_MIXED_CORE",
+          "name": "Mixed Core Topics (Overloaded)",
+          "description": "Overcrowded module combining Java Object-Oriented Programming and Linear Algebra Mathematics.",
+          "record_ids": [
+            "REC_J01",
+            "REC_J02",
+            "REC_J03",
+            "REC_J04",
+            "REC_J05",
+            "REC_J06",
+            "REC_M01",
+            "REC_M02",
+            "REC_M03",
+            "REC_M04",
+            "REC_M05",
+            "REC_M06"
+          ],
+          "access_count": 21
+        },
+        "MOD_VECTOR_INDEX": {
+          "id": "MOD_VECTOR_INDEX",
+          "name": "Vector Index Structures",
+          "description": "Approximate nearest neighbors algorithms and vector index structures.",
+          "record_ids": [
+            "REC_V01",
+            "REC_V02",
+            "REC_V03",
+            "REC_V04",
+            "REC_V05"
+          ],
+          "access_count": 29
+        },
+        "MOD_EMBEDDING_RETRIEVAL": {
+          "id": "MOD_EMBEDDING_RETRIEVAL",
+          "name": "Dense Embedding Search",
+          "description": "Dense embedding retrieval systems and vector comparison techniques (near-duplicate of Vector Index Structures).",
+          "record_ids": [
+            "REC_V06",
+            "REC_V07",
+            "REC_V08",
+            "REC_V09",
+            "REC_V10"
+          ],
+          "access_count": 12
+        },
+        "MOD_PYTHON_DATA": {
+          "id": "MOD_PYTHON_DATA",
+          "name": "Python Data Engineering",
+          "description": "Python data processing tools including NumPy and Pandas.",
+          "record_ids": [
+            "REC_P01",
+            "REC_P02",
+            "REC_P03",
+            "REC_P04",
+            "REC_P05",
+            "REC_P06"
+          ],
+          "access_count": 12
+        },
+        "MOD_ML_MODELS": {
+          "id": "MOD_ML_MODELS",
+          "name": "Machine Learning Pipelines",
+          "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+          "record_ids": [
+            "REC_ML01",
+            "REC_ML02",
+            "REC_ML03",
+            "REC_ML04",
+            "REC_ML05",
+            "REC_ML06"
+          ],
+          "access_count": 12
+        },
+        "MOD_DATABASE_SQL": {
+          "id": "MOD_DATABASE_SQL",
+          "name": "Relational Databases and SQL",
+          "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+          "record_ids": [
+            "REC_DB01",
+            "REC_DB02",
+            "REC_DB03",
+            "REC_DB04",
+            "REC_DB05",
+            "REC_DB06"
+          ],
+          "access_count": 12
+        },
+        "MOD_DISTRIBUTED_SYSTEMS": {
+          "id": "MOD_DISTRIBUTED_SYSTEMS",
+          "name": "Distributed Systems",
+          "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+          "record_ids": [
+            "REC_DS01",
+            "REC_DS02",
+            "REC_DS03",
+            "REC_DS04",
+            "REC_DS05",
+            "REC_DS06"
+          ],
+          "access_count": 12
+        }
+      },
+      "records": {
+        "REC_J01": {
+          "id": "REC_J01",
+          "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.136408,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_J02": {
+          "id": "REC_J02",
+          "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.143258,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_J03": {
+          "id": "REC_J03",
+          "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1500921,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_J04": {
+          "id": "REC_J04",
+          "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.156478,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_J05": {
+          "id": "REC_J05",
+          "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1632488,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_J06": {
+          "id": "REC_J06",
+          "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.169832,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_M01": {
+          "id": "REC_M01",
+          "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.176406,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_M02": {
+          "id": "REC_M02",
+          "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1829288,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_M03": {
+          "id": "REC_M03",
+          "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.189287,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_M04": {
+          "id": "REC_M04",
+          "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.195625,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_M05": {
+          "id": "REC_M05",
+          "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.202105,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_M06": {
+          "id": "REC_M06",
+          "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.208435,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "REC_V01": {
+          "id": "REC_V01",
+          "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.214881,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V02": {
+          "id": "REC_V02",
+          "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.220968,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V03": {
+          "id": "REC_V03",
+          "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2274199,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V04": {
+          "id": "REC_V04",
+          "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.234459,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V05": {
+          "id": "REC_V05",
+          "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.240957,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V06": {
+          "id": "REC_V06",
+          "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.247472,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V07": {
+          "id": "REC_V07",
+          "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2538419,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V08": {
+          "id": "REC_V08",
+          "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.260339,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V09": {
+          "id": "REC_V09",
+          "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.266864,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V10": {
+          "id": "REC_V10",
+          "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.273291,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_P01": {
+          "id": "REC_P01",
+          "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.279664,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P02": {
+          "id": "REC_P02",
+          "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.286102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P03": {
+          "id": "REC_P03",
+          "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.29246,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P04": {
+          "id": "REC_P04",
+          "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.299102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P05": {
+          "id": "REC_P05",
+          "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.30559,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P06": {
+          "id": "REC_P06",
+          "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.312029,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_ML01": {
+          "id": "REC_ML01",
+          "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.31855,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML02": {
+          "id": "REC_ML02",
+          "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3250718,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML03": {
+          "id": "REC_ML03",
+          "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.331607,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML04": {
+          "id": "REC_ML04",
+          "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.337887,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML05": {
+          "id": "REC_ML05",
+          "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.344249,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML06": {
+          "id": "REC_ML06",
+          "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.350795,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_DB01": {
+          "id": "REC_DB01",
+          "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.357109,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB02": {
+          "id": "REC_DB02",
+          "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.363549,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB03": {
+          "id": "REC_DB03",
+          "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.369923,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB04": {
+          "id": "REC_DB04",
+          "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3764842,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB05": {
+          "id": "REC_DB05",
+          "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.383005,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB06": {
+          "id": "REC_DB06",
+          "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.389285,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DS01": {
+          "id": "REC_DS01",
+          "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3961139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS02": {
+          "id": "REC_DS02",
+          "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4025779,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS03": {
+          "id": "REC_DS03",
+          "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.409139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS04": {
+          "id": "REC_DS04",
+          "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.415704,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS05": {
+          "id": "REC_DS05",
+          "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4221282,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS06": {
+          "id": "REC_DS06",
+          "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4284642,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        }
+      },
+      "graph_edges": [
+        [
+          "MOD_MIXED_CORE",
+          "MOD_VECTOR_INDEX",
+          {
+            "weight": 0.4,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_VECTOR_INDEX",
+          "MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.88,
+            "co_access": 32
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "weight": 0.55,
+            "co_access": 0
+          }
+        ]
+      ],
+      "graph_nodes": [
+        [
+          "MOD_MIXED_CORE",
+          {
+            "id": "MOD_MIXED_CORE",
+            "name": "Mixed Core Topics (Overloaded)",
+            "description": "Overcrowded module combining Java Object-Oriented Programming and Linear Algebra Mathematics.",
+            "record_ids": [
+              "REC_J01",
+              "REC_J02",
+              "REC_J03",
+              "REC_J04",
+              "REC_J05",
+              "REC_J06",
+              "REC_M01",
+              "REC_M02",
+              "REC_M03",
+              "REC_M04",
+              "REC_M05",
+              "REC_M06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_VECTOR_INDEX",
+          {
+            "id": "MOD_VECTOR_INDEX",
+            "name": "Vector Index Structures",
+            "description": "Approximate nearest neighbors algorithms and vector index structures.",
+            "record_ids": [
+              "REC_V01",
+              "REC_V02",
+              "REC_V03",
+              "REC_V04",
+              "REC_V05"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_EMBEDDING_RETRIEVAL",
+          {
+            "id": "MOD_EMBEDDING_RETRIEVAL",
+            "name": "Dense Embedding Search",
+            "description": "Dense embedding retrieval systems and vector comparison techniques (near-duplicate of Vector Index Structures).",
+            "record_ids": [
+              "REC_V06",
+              "REC_V07",
+              "REC_V08",
+              "REC_V09",
+              "REC_V10"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_PYTHON_DATA",
+          {
+            "id": "MOD_PYTHON_DATA",
+            "name": "Python Data Engineering",
+            "description": "Python data processing tools including NumPy and Pandas.",
+            "record_ids": [
+              "REC_P01",
+              "REC_P02",
+              "REC_P03",
+              "REC_P04",
+              "REC_P05",
+              "REC_P06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_ML_MODELS",
+          {
+            "id": "MOD_ML_MODELS",
+            "name": "Machine Learning Pipelines",
+            "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+            "record_ids": [
+              "REC_ML01",
+              "REC_ML02",
+              "REC_ML03",
+              "REC_ML04",
+              "REC_ML05",
+              "REC_ML06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          {
+            "id": "MOD_DATABASE_SQL",
+            "name": "Relational Databases and SQL",
+            "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+            "record_ids": [
+              "REC_DB01",
+              "REC_DB02",
+              "REC_DB03",
+              "REC_DB04",
+              "REC_DB05",
+              "REC_DB06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "id": "MOD_DISTRIBUTED_SYSTEMS",
+            "name": "Distributed Systems",
+            "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+            "record_ids": [
+              "REC_DS01",
+              "REC_DS02",
+              "REC_DS03",
+              "REC_DS04",
+              "REC_DS05",
+              "REC_DS06"
+            ],
+            "access_count": 0
+          }
+        ]
+      ]
+    },
+    {
+      "version": "V2",
+      "version_label": "Neutral SPLIT",
+      "description": "Applied SPLIT on {'module_id': 'MOD_MIXED_CORE'}. Delta Recall: +0.0000",
+      "timestamp": 1792868616.257812,
+      "status": "NEUTRAL",
+      "metrics": {
+        "mean_recall": 0.7969,
+        "mean_precision": 0.5,
+        "mean_latency_ms": 9.8
+      },
+      "op_info": {
+        "op": "SPLIT",
+        "params": {
+          "module_id": "MOD_MIXED_CORE"
+        },
+        "mutation": {
+          "operation": "SPLIT",
+          "source_module": "MOD_MIXED_CORE",
+          "new_modules": [
+            "MOD_MIXED_CORE_A",
+            "MOD_MIXED_CORE_B"
+          ],
+          "cluster_counts": [
+            6,
+            6
+          ]
+        }
+      },
+      "modules": {
+        "MOD_VECTOR_INDEX": {
+          "id": "MOD_VECTOR_INDEX",
+          "name": "Vector Index Structures",
+          "description": "Approximate nearest neighbors algorithms and vector index structures.",
+          "record_ids": [
+            "REC_V01",
+            "REC_V02",
+            "REC_V03",
+            "REC_V04",
+            "REC_V05"
+          ],
+          "access_count": 116
+        },
+        "MOD_EMBEDDING_RETRIEVAL": {
+          "id": "MOD_EMBEDDING_RETRIEVAL",
+          "name": "Dense Embedding Search",
+          "description": "Dense embedding retrieval systems and vector comparison techniques (near-duplicate of Vector Index Structures).",
+          "record_ids": [
+            "REC_V06",
+            "REC_V07",
+            "REC_V08",
+            "REC_V09",
+            "REC_V10"
+          ],
+          "access_count": 48
+        },
+        "MOD_PYTHON_DATA": {
+          "id": "MOD_PYTHON_DATA",
+          "name": "Python Data Engineering",
+          "description": "Python data processing tools including NumPy and Pandas.",
+          "record_ids": [
+            "REC_P01",
+            "REC_P02",
+            "REC_P03",
+            "REC_P04",
+            "REC_P05",
+            "REC_P06"
+          ],
+          "access_count": 48
+        },
+        "MOD_ML_MODELS": {
+          "id": "MOD_ML_MODELS",
+          "name": "Machine Learning Pipelines",
+          "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+          "record_ids": [
+            "REC_ML01",
+            "REC_ML02",
+            "REC_ML03",
+            "REC_ML04",
+            "REC_ML05",
+            "REC_ML06"
+          ],
+          "access_count": 48
+        },
+        "MOD_DATABASE_SQL": {
+          "id": "MOD_DATABASE_SQL",
+          "name": "Relational Databases and SQL",
+          "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+          "record_ids": [
+            "REC_DB01",
+            "REC_DB02",
+            "REC_DB03",
+            "REC_DB04",
+            "REC_DB05",
+            "REC_DB06"
+          ],
+          "access_count": 48
+        },
+        "MOD_DISTRIBUTED_SYSTEMS": {
+          "id": "MOD_DISTRIBUTED_SYSTEMS",
+          "name": "Distributed Systems",
+          "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+          "record_ids": [
+            "REC_DS01",
+            "REC_DS02",
+            "REC_DS03",
+            "REC_DS04",
+            "REC_DS05",
+            "REC_DS06"
+          ],
+          "access_count": 48
+        },
+        "MOD_MIXED_CORE_A": {
+          "id": "MOD_MIXED_CORE_A",
+          "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+          "description": "Split cluster A from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_M01",
+            "REC_M02",
+            "REC_M03",
+            "REC_M04",
+            "REC_M05",
+            "REC_M06"
+          ],
+          "access_count": 12
+        },
+        "MOD_MIXED_CORE_B": {
+          "id": "MOD_MIXED_CORE_B",
+          "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+          "description": "Split cluster B from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_J01",
+            "REC_J02",
+            "REC_J03",
+            "REC_J04",
+            "REC_J05",
+            "REC_J06"
+          ],
+          "access_count": 13
+        }
+      },
+      "records": {
+        "REC_J01": {
+          "id": "REC_J01",
+          "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.136408,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J02": {
+          "id": "REC_J02",
+          "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.143258,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J03": {
+          "id": "REC_J03",
+          "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1500921,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J04": {
+          "id": "REC_J04",
+          "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.156478,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J05": {
+          "id": "REC_J05",
+          "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1632488,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J06": {
+          "id": "REC_J06",
+          "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.169832,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_M01": {
+          "id": "REC_M01",
+          "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.176406,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M02": {
+          "id": "REC_M02",
+          "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1829288,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M03": {
+          "id": "REC_M03",
+          "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.189287,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M04": {
+          "id": "REC_M04",
+          "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.195625,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M05": {
+          "id": "REC_M05",
+          "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.202105,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M06": {
+          "id": "REC_M06",
+          "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.208435,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_V01": {
+          "id": "REC_V01",
+          "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.214881,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V02": {
+          "id": "REC_V02",
+          "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.220968,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V03": {
+          "id": "REC_V03",
+          "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2274199,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V04": {
+          "id": "REC_V04",
+          "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.234459,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V05": {
+          "id": "REC_V05",
+          "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.240957,
+          "topic": "vector_search",
+          "module_id": "MOD_VECTOR_INDEX"
+        },
+        "REC_V06": {
+          "id": "REC_V06",
+          "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.247472,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V07": {
+          "id": "REC_V07",
+          "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2538419,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V08": {
+          "id": "REC_V08",
+          "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.260339,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V09": {
+          "id": "REC_V09",
+          "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.266864,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V10": {
+          "id": "REC_V10",
+          "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.273291,
+          "topic": "vector_search",
+          "module_id": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_P01": {
+          "id": "REC_P01",
+          "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.279664,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P02": {
+          "id": "REC_P02",
+          "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.286102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P03": {
+          "id": "REC_P03",
+          "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.29246,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P04": {
+          "id": "REC_P04",
+          "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.299102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P05": {
+          "id": "REC_P05",
+          "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.30559,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P06": {
+          "id": "REC_P06",
+          "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.312029,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_ML01": {
+          "id": "REC_ML01",
+          "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.31855,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML02": {
+          "id": "REC_ML02",
+          "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3250718,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML03": {
+          "id": "REC_ML03",
+          "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.331607,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML04": {
+          "id": "REC_ML04",
+          "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.337887,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML05": {
+          "id": "REC_ML05",
+          "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.344249,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML06": {
+          "id": "REC_ML06",
+          "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.350795,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_DB01": {
+          "id": "REC_DB01",
+          "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.357109,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB02": {
+          "id": "REC_DB02",
+          "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.363549,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB03": {
+          "id": "REC_DB03",
+          "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.369923,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB04": {
+          "id": "REC_DB04",
+          "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3764842,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB05": {
+          "id": "REC_DB05",
+          "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.383005,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB06": {
+          "id": "REC_DB06",
+          "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.389285,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DS01": {
+          "id": "REC_DS01",
+          "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3961139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS02": {
+          "id": "REC_DS02",
+          "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4025779,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS03": {
+          "id": "REC_DS03",
+          "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.409139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS04": {
+          "id": "REC_DS04",
+          "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.415704,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS05": {
+          "id": "REC_DS05",
+          "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4221282,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS06": {
+          "id": "REC_DS06",
+          "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4284642,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        }
+      },
+      "graph_edges": [
+        [
+          "MOD_VECTOR_INDEX",
+          "MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.88,
+            "co_access": 32
+          }
+        ],
+        [
+          "MOD_VECTOR_INDEX",
+          "MOD_MIXED_CORE_A",
+          {
+            "weight": 0.5,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_VECTOR_INDEX",
+          "MOD_MIXED_CORE_B",
+          {
+            "weight": 0.5,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "weight": 0.55,
+            "co_access": 0
+          }
+        ]
+      ],
+      "graph_nodes": [
+        [
+          "MOD_VECTOR_INDEX",
+          {
+            "id": "MOD_VECTOR_INDEX",
+            "name": "Vector Index Structures",
+            "description": "Approximate nearest neighbors algorithms and vector index structures.",
+            "record_ids": [
+              "REC_V01",
+              "REC_V02",
+              "REC_V03",
+              "REC_V04",
+              "REC_V05"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_EMBEDDING_RETRIEVAL",
+          {
+            "id": "MOD_EMBEDDING_RETRIEVAL",
+            "name": "Dense Embedding Search",
+            "description": "Dense embedding retrieval systems and vector comparison techniques (near-duplicate of Vector Index Structures).",
+            "record_ids": [
+              "REC_V06",
+              "REC_V07",
+              "REC_V08",
+              "REC_V09",
+              "REC_V10"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_PYTHON_DATA",
+          {
+            "id": "MOD_PYTHON_DATA",
+            "name": "Python Data Engineering",
+            "description": "Python data processing tools including NumPy and Pandas.",
+            "record_ids": [
+              "REC_P01",
+              "REC_P02",
+              "REC_P03",
+              "REC_P04",
+              "REC_P05",
+              "REC_P06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_ML_MODELS",
+          {
+            "id": "MOD_ML_MODELS",
+            "name": "Machine Learning Pipelines",
+            "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+            "record_ids": [
+              "REC_ML01",
+              "REC_ML02",
+              "REC_ML03",
+              "REC_ML04",
+              "REC_ML05",
+              "REC_ML06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          {
+            "id": "MOD_DATABASE_SQL",
+            "name": "Relational Databases and SQL",
+            "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+            "record_ids": [
+              "REC_DB01",
+              "REC_DB02",
+              "REC_DB03",
+              "REC_DB04",
+              "REC_DB05",
+              "REC_DB06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "id": "MOD_DISTRIBUTED_SYSTEMS",
+            "name": "Distributed Systems",
+            "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+            "record_ids": [
+              "REC_DS01",
+              "REC_DS02",
+              "REC_DS03",
+              "REC_DS04",
+              "REC_DS05",
+              "REC_DS06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          {
+            "id": "MOD_MIXED_CORE_A",
+            "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+            "description": "Split cluster A from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_M01",
+              "REC_M02",
+              "REC_M03",
+              "REC_M04",
+              "REC_M05",
+              "REC_M06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          {
+            "id": "MOD_MIXED_CORE_B",
+            "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+            "description": "Split cluster B from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_J01",
+              "REC_J02",
+              "REC_J03",
+              "REC_J04",
+              "REC_J05",
+              "REC_J06"
+            ],
+            "access_count": 0
+          }
+        ]
+      ]
+    },
+    {
+      "version": "V3",
+      "version_label": "Neutral MERGE",
+      "description": "Applied MERGE on {'module_a': 'MOD_VECTOR_INDEX', 'module_b': 'MOD_EMBEDDING_RETRIEVAL'}. Delta Recall: +0.0000",
+      "timestamp": 1792868616.878498,
+      "status": "NEUTRAL",
+      "metrics": {
+        "mean_recall": 0.7969,
+        "mean_precision": 0.5,
+        "mean_latency_ms": 9.48
+      },
+      "op_info": {
+        "op": "MERGE",
+        "params": {
+          "module_a": "MOD_VECTOR_INDEX",
+          "module_b": "MOD_EMBEDDING_RETRIEVAL"
+        },
+        "mutation": {
+          "operation": "MERGE",
+          "merged_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          "sources": [
+            "MOD_VECTOR_INDEX",
+            "MOD_EMBEDDING_RETRIEVAL"
+          ],
+          "record_count": 10
+        }
+      },
+      "modules": {
+        "MOD_PYTHON_DATA": {
+          "id": "MOD_PYTHON_DATA",
+          "name": "Python Data Engineering",
+          "description": "Python data processing tools including NumPy and Pandas.",
+          "record_ids": [
+            "REC_P01",
+            "REC_P02",
+            "REC_P03",
+            "REC_P04",
+            "REC_P05",
+            "REC_P06"
+          ],
+          "access_count": 60
+        },
+        "MOD_ML_MODELS": {
+          "id": "MOD_ML_MODELS",
+          "name": "Machine Learning Pipelines",
+          "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+          "record_ids": [
+            "REC_ML01",
+            "REC_ML02",
+            "REC_ML03",
+            "REC_ML04",
+            "REC_ML05",
+            "REC_ML06"
+          ],
+          "access_count": 60
+        },
+        "MOD_DATABASE_SQL": {
+          "id": "MOD_DATABASE_SQL",
+          "name": "Relational Databases and SQL",
+          "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+          "record_ids": [
+            "REC_DB01",
+            "REC_DB02",
+            "REC_DB03",
+            "REC_DB04",
+            "REC_DB05",
+            "REC_DB06"
+          ],
+          "access_count": 60
+        },
+        "MOD_DISTRIBUTED_SYSTEMS": {
+          "id": "MOD_DISTRIBUTED_SYSTEMS",
+          "name": "Distributed Systems",
+          "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+          "record_ids": [
+            "REC_DS01",
+            "REC_DS02",
+            "REC_DS03",
+            "REC_DS04",
+            "REC_DS05",
+            "REC_DS06"
+          ],
+          "access_count": 60
+        },
+        "MOD_MIXED_CORE_A": {
+          "id": "MOD_MIXED_CORE_A",
+          "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+          "description": "Split cluster A from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_M01",
+            "REC_M02",
+            "REC_M03",
+            "REC_M04",
+            "REC_M05",
+            "REC_M06"
+          ],
+          "access_count": 32
+        },
+        "MOD_MIXED_CORE_B": {
+          "id": "MOD_MIXED_CORE_B",
+          "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+          "description": "Split cluster B from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_J01",
+            "REC_J02",
+            "REC_J03",
+            "REC_J04",
+            "REC_J05",
+            "REC_J06"
+          ],
+          "access_count": 34
+        },
+        "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL": {
+          "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+          "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+          "record_ids": [
+            "REC_V05",
+            "REC_V03",
+            "REC_V01",
+            "REC_V06",
+            "REC_V08",
+            "REC_V10",
+            "REC_V04",
+            "REC_V09",
+            "REC_V07",
+            "REC_V02"
+          ],
+          "access_count": 29
+        }
+      },
+      "records": {
+        "REC_J01": {
+          "id": "REC_J01",
+          "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.136408,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J02": {
+          "id": "REC_J02",
+          "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.143258,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J03": {
+          "id": "REC_J03",
+          "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1500921,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J04": {
+          "id": "REC_J04",
+          "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.156478,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J05": {
+          "id": "REC_J05",
+          "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1632488,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J06": {
+          "id": "REC_J06",
+          "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.169832,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_M01": {
+          "id": "REC_M01",
+          "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.176406,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M02": {
+          "id": "REC_M02",
+          "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1829288,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M03": {
+          "id": "REC_M03",
+          "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.189287,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M04": {
+          "id": "REC_M04",
+          "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.195625,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M05": {
+          "id": "REC_M05",
+          "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.202105,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M06": {
+          "id": "REC_M06",
+          "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.208435,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_V01": {
+          "id": "REC_V01",
+          "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.214881,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V02": {
+          "id": "REC_V02",
+          "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.220968,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V03": {
+          "id": "REC_V03",
+          "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2274199,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V04": {
+          "id": "REC_V04",
+          "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.234459,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V05": {
+          "id": "REC_V05",
+          "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.240957,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V06": {
+          "id": "REC_V06",
+          "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.247472,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V07": {
+          "id": "REC_V07",
+          "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2538419,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V08": {
+          "id": "REC_V08",
+          "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.260339,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V09": {
+          "id": "REC_V09",
+          "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.266864,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V10": {
+          "id": "REC_V10",
+          "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.273291,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_P01": {
+          "id": "REC_P01",
+          "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.279664,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P02": {
+          "id": "REC_P02",
+          "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.286102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P03": {
+          "id": "REC_P03",
+          "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.29246,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P04": {
+          "id": "REC_P04",
+          "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.299102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P05": {
+          "id": "REC_P05",
+          "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.30559,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P06": {
+          "id": "REC_P06",
+          "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.312029,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_ML01": {
+          "id": "REC_ML01",
+          "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.31855,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML02": {
+          "id": "REC_ML02",
+          "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3250718,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML03": {
+          "id": "REC_ML03",
+          "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.331607,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML04": {
+          "id": "REC_ML04",
+          "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.337887,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML05": {
+          "id": "REC_ML05",
+          "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.344249,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML06": {
+          "id": "REC_ML06",
+          "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.350795,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_DB01": {
+          "id": "REC_DB01",
+          "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.357109,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB02": {
+          "id": "REC_DB02",
+          "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.363549,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB03": {
+          "id": "REC_DB03",
+          "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.369923,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB04": {
+          "id": "REC_DB04",
+          "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3764842,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB05": {
+          "id": "REC_DB05",
+          "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.383005,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB06": {
+          "id": "REC_DB06",
+          "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.389285,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DS01": {
+          "id": "REC_DS01",
+          "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3961139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS02": {
+          "id": "REC_DS02",
+          "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4025779,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS03": {
+          "id": "REC_DS03",
+          "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.409139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS04": {
+          "id": "REC_DS04",
+          "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.415704,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS05": {
+          "id": "REC_DS05",
+          "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4221282,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS06": {
+          "id": "REC_DS06",
+          "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4284642,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        }
+      },
+      "graph_edges": [
+        [
+          "MOD_DATABASE_SQL",
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "weight": 0.55,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ]
+      ],
+      "graph_nodes": [
+        [
+          "MOD_PYTHON_DATA",
+          {
+            "id": "MOD_PYTHON_DATA",
+            "name": "Python Data Engineering",
+            "description": "Python data processing tools including NumPy and Pandas.",
+            "record_ids": [
+              "REC_P01",
+              "REC_P02",
+              "REC_P03",
+              "REC_P04",
+              "REC_P05",
+              "REC_P06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_ML_MODELS",
+          {
+            "id": "MOD_ML_MODELS",
+            "name": "Machine Learning Pipelines",
+            "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+            "record_ids": [
+              "REC_ML01",
+              "REC_ML02",
+              "REC_ML03",
+              "REC_ML04",
+              "REC_ML05",
+              "REC_ML06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          {
+            "id": "MOD_DATABASE_SQL",
+            "name": "Relational Databases and SQL",
+            "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+            "record_ids": [
+              "REC_DB01",
+              "REC_DB02",
+              "REC_DB03",
+              "REC_DB04",
+              "REC_DB05",
+              "REC_DB06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "id": "MOD_DISTRIBUTED_SYSTEMS",
+            "name": "Distributed Systems",
+            "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+            "record_ids": [
+              "REC_DS01",
+              "REC_DS02",
+              "REC_DS03",
+              "REC_DS04",
+              "REC_DS05",
+              "REC_DS06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          {
+            "id": "MOD_MIXED_CORE_A",
+            "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+            "description": "Split cluster A from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_M01",
+              "REC_M02",
+              "REC_M03",
+              "REC_M04",
+              "REC_M05",
+              "REC_M06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          {
+            "id": "MOD_MIXED_CORE_B",
+            "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+            "description": "Split cluster B from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_J01",
+              "REC_J02",
+              "REC_J03",
+              "REC_J04",
+              "REC_J05",
+              "REC_J06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+            "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+            "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+            "record_ids": [
+              "REC_V05",
+              "REC_V03",
+              "REC_V01",
+              "REC_V06",
+              "REC_V08",
+              "REC_V10",
+              "REC_V04",
+              "REC_V09",
+              "REC_V07",
+              "REC_V02"
+            ],
+            "access_count": 0
+          }
+        ]
+      ]
+    },
+    {
+      "version": "V4",
+      "version_label": "Accepted SHORTCUT",
+      "description": "Applied SHORTCUT on {'module_a': 'MOD_PYTHON_DATA', 'module_b': 'MOD_ML_MODELS'}. Delta Recall: +0.0625",
+      "timestamp": 1792868617.549644,
+      "status": "ACCEPTED",
+      "metrics": {
+        "mean_recall": 0.8594,
+        "mean_precision": 0.5312,
+        "mean_latency_ms": 9.85
+      },
+      "op_info": {
+        "op": "SHORTCUT",
+        "params": {
+          "module_a": "MOD_PYTHON_DATA",
+          "module_b": "MOD_ML_MODELS"
+        },
+        "mutation": {
+          "operation": "SHORTCUT",
+          "module_a": "MOD_PYTHON_DATA",
+          "module_b": "MOD_ML_MODELS",
+          "weight": 0.85
+        }
+      },
+      "modules": {
+        "MOD_PYTHON_DATA": {
+          "id": "MOD_PYTHON_DATA",
+          "name": "Python Data Engineering",
+          "description": "Python data processing tools including NumPy and Pandas.",
+          "record_ids": [
+            "REC_P01",
+            "REC_P02",
+            "REC_P03",
+            "REC_P04",
+            "REC_P05",
+            "REC_P06"
+          ],
+          "access_count": 85
+        },
+        "MOD_ML_MODELS": {
+          "id": "MOD_ML_MODELS",
+          "name": "Machine Learning Pipelines",
+          "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+          "record_ids": [
+            "REC_ML01",
+            "REC_ML02",
+            "REC_ML03",
+            "REC_ML04",
+            "REC_ML05",
+            "REC_ML06"
+          ],
+          "access_count": 86
+        },
+        "MOD_DATABASE_SQL": {
+          "id": "MOD_DATABASE_SQL",
+          "name": "Relational Databases and SQL",
+          "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+          "record_ids": [
+            "REC_DB01",
+            "REC_DB02",
+            "REC_DB03",
+            "REC_DB04",
+            "REC_DB05",
+            "REC_DB06"
+          ],
+          "access_count": 72
+        },
+        "MOD_DISTRIBUTED_SYSTEMS": {
+          "id": "MOD_DISTRIBUTED_SYSTEMS",
+          "name": "Distributed Systems",
+          "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+          "record_ids": [
+            "REC_DS01",
+            "REC_DS02",
+            "REC_DS03",
+            "REC_DS04",
+            "REC_DS05",
+            "REC_DS06"
+          ],
+          "access_count": 72
+        },
+        "MOD_MIXED_CORE_A": {
+          "id": "MOD_MIXED_CORE_A",
+          "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+          "description": "Split cluster A from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_M01",
+            "REC_M02",
+            "REC_M03",
+            "REC_M04",
+            "REC_M05",
+            "REC_M06"
+          ],
+          "access_count": 52
+        },
+        "MOD_MIXED_CORE_B": {
+          "id": "MOD_MIXED_CORE_B",
+          "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+          "description": "Split cluster B from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_J01",
+            "REC_J02",
+            "REC_J03",
+            "REC_J04",
+            "REC_J05",
+            "REC_J06"
+          ],
+          "access_count": 55
+        },
+        "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL": {
+          "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+          "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+          "record_ids": [
+            "REC_V05",
+            "REC_V03",
+            "REC_V01",
+            "REC_V06",
+            "REC_V08",
+            "REC_V10",
+            "REC_V04",
+            "REC_V09",
+            "REC_V07",
+            "REC_V02"
+          ],
+          "access_count": 58
+        }
+      },
+      "records": {
+        "REC_J01": {
+          "id": "REC_J01",
+          "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.136408,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J02": {
+          "id": "REC_J02",
+          "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.143258,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J03": {
+          "id": "REC_J03",
+          "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1500921,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J04": {
+          "id": "REC_J04",
+          "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.156478,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J05": {
+          "id": "REC_J05",
+          "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1632488,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J06": {
+          "id": "REC_J06",
+          "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.169832,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_M01": {
+          "id": "REC_M01",
+          "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.176406,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M02": {
+          "id": "REC_M02",
+          "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1829288,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M03": {
+          "id": "REC_M03",
+          "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.189287,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M04": {
+          "id": "REC_M04",
+          "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.195625,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M05": {
+          "id": "REC_M05",
+          "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.202105,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M06": {
+          "id": "REC_M06",
+          "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.208435,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_V01": {
+          "id": "REC_V01",
+          "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.214881,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V02": {
+          "id": "REC_V02",
+          "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.220968,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V03": {
+          "id": "REC_V03",
+          "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2274199,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V04": {
+          "id": "REC_V04",
+          "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.234459,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V05": {
+          "id": "REC_V05",
+          "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.240957,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V06": {
+          "id": "REC_V06",
+          "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.247472,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V07": {
+          "id": "REC_V07",
+          "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2538419,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V08": {
+          "id": "REC_V08",
+          "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.260339,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V09": {
+          "id": "REC_V09",
+          "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.266864,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V10": {
+          "id": "REC_V10",
+          "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.273291,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_P01": {
+          "id": "REC_P01",
+          "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.279664,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P02": {
+          "id": "REC_P02",
+          "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.286102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P03": {
+          "id": "REC_P03",
+          "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.29246,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P04": {
+          "id": "REC_P04",
+          "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.299102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P05": {
+          "id": "REC_P05",
+          "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.30559,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P06": {
+          "id": "REC_P06",
+          "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.312029,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_ML01": {
+          "id": "REC_ML01",
+          "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.31855,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML02": {
+          "id": "REC_ML02",
+          "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3250718,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML03": {
+          "id": "REC_ML03",
+          "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.331607,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML04": {
+          "id": "REC_ML04",
+          "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.337887,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML05": {
+          "id": "REC_ML05",
+          "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.344249,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML06": {
+          "id": "REC_ML06",
+          "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.350795,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_DB01": {
+          "id": "REC_DB01",
+          "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.357109,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB02": {
+          "id": "REC_DB02",
+          "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.363549,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB03": {
+          "id": "REC_DB03",
+          "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.369923,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB04": {
+          "id": "REC_DB04",
+          "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3764842,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB05": {
+          "id": "REC_DB05",
+          "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.383005,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB06": {
+          "id": "REC_DB06",
+          "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.389285,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DS01": {
+          "id": "REC_DS01",
+          "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3961139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS02": {
+          "id": "REC_DS02",
+          "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4025779,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS03": {
+          "id": "REC_DS03",
+          "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.409139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS04": {
+          "id": "REC_DS04",
+          "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.415704,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS05": {
+          "id": "REC_DS05",
+          "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4221282,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS06": {
+          "id": "REC_DS06",
+          "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4284642,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        }
+      },
+      "graph_edges": [
+        [
+          "MOD_PYTHON_DATA",
+          "MOD_ML_MODELS",
+          {
+            "weight": 0.85,
+            "is_shortcut": true,
+            "co_access": 51
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "weight": 0.55,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ]
+      ],
+      "graph_nodes": [
+        [
+          "MOD_PYTHON_DATA",
+          {
+            "id": "MOD_PYTHON_DATA",
+            "name": "Python Data Engineering",
+            "description": "Python data processing tools including NumPy and Pandas.",
+            "record_ids": [
+              "REC_P01",
+              "REC_P02",
+              "REC_P03",
+              "REC_P04",
+              "REC_P05",
+              "REC_P06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_ML_MODELS",
+          {
+            "id": "MOD_ML_MODELS",
+            "name": "Machine Learning Pipelines",
+            "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+            "record_ids": [
+              "REC_ML01",
+              "REC_ML02",
+              "REC_ML03",
+              "REC_ML04",
+              "REC_ML05",
+              "REC_ML06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          {
+            "id": "MOD_DATABASE_SQL",
+            "name": "Relational Databases and SQL",
+            "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+            "record_ids": [
+              "REC_DB01",
+              "REC_DB02",
+              "REC_DB03",
+              "REC_DB04",
+              "REC_DB05",
+              "REC_DB06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "id": "MOD_DISTRIBUTED_SYSTEMS",
+            "name": "Distributed Systems",
+            "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+            "record_ids": [
+              "REC_DS01",
+              "REC_DS02",
+              "REC_DS03",
+              "REC_DS04",
+              "REC_DS05",
+              "REC_DS06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          {
+            "id": "MOD_MIXED_CORE_A",
+            "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+            "description": "Split cluster A from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_M01",
+              "REC_M02",
+              "REC_M03",
+              "REC_M04",
+              "REC_M05",
+              "REC_M06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          {
+            "id": "MOD_MIXED_CORE_B",
+            "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+            "description": "Split cluster B from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_J01",
+              "REC_J02",
+              "REC_J03",
+              "REC_J04",
+              "REC_J05",
+              "REC_J06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+            "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+            "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+            "record_ids": [
+              "REC_V05",
+              "REC_V03",
+              "REC_V01",
+              "REC_V06",
+              "REC_V08",
+              "REC_V10",
+              "REC_V04",
+              "REC_V09",
+              "REC_V07",
+              "REC_V02"
+            ],
+            "access_count": 0
+          }
+        ]
+      ]
+    },
+    {
+      "version": "V5",
+      "version_label": "Rejected MERGE",
+      "description": "Recall dropped by 0.0573 (exceeds epsilon 0.02)",
+      "timestamp": 1792868618.2974432,
+      "status": "REJECTED",
+      "metrics": {
+        "mean_recall": 0.8021,
+        "mean_precision": 0.4844,
+        "mean_latency_ms": 10.79
+      },
+      "op_info": {
+        "op": "MERGE",
+        "params": {
+          "module_a": "MOD_MIXED_CORE_B",
+          "module_b": "MOD_PYTHON_DATA"
+        },
+        "mutation": {
+          "operation": "MERGE",
+          "merged_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA",
+          "sources": [
+            "MOD_MIXED_CORE_B",
+            "MOD_PYTHON_DATA"
+          ],
+          "record_count": 12
+        }
+      },
+      "modules": {
+        "MOD_ML_MODELS": {
+          "id": "MOD_ML_MODELS",
+          "name": "Machine Learning Pipelines",
+          "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+          "record_ids": [
+            "REC_ML01",
+            "REC_ML02",
+            "REC_ML03",
+            "REC_ML04",
+            "REC_ML05",
+            "REC_ML06"
+          ],
+          "access_count": 115
+        },
+        "MOD_DATABASE_SQL": {
+          "id": "MOD_DATABASE_SQL",
+          "name": "Relational Databases and SQL",
+          "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+          "record_ids": [
+            "REC_DB01",
+            "REC_DB02",
+            "REC_DB03",
+            "REC_DB04",
+            "REC_DB05",
+            "REC_DB06"
+          ],
+          "access_count": 84
+        },
+        "MOD_DISTRIBUTED_SYSTEMS": {
+          "id": "MOD_DISTRIBUTED_SYSTEMS",
+          "name": "Distributed Systems",
+          "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+          "record_ids": [
+            "REC_DS01",
+            "REC_DS02",
+            "REC_DS03",
+            "REC_DS04",
+            "REC_DS05",
+            "REC_DS06"
+          ],
+          "access_count": 84
+        },
+        "MOD_MIXED_CORE_A": {
+          "id": "MOD_MIXED_CORE_A",
+          "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+          "description": "Split cluster A from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_M01",
+            "REC_M02",
+            "REC_M03",
+            "REC_M04",
+            "REC_M05",
+            "REC_M06"
+          ],
+          "access_count": 76
+        },
+        "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL": {
+          "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+          "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+          "record_ids": [
+            "REC_V05",
+            "REC_V03",
+            "REC_V01",
+            "REC_V06",
+            "REC_V08",
+            "REC_V10",
+            "REC_V04",
+            "REC_V09",
+            "REC_V07",
+            "REC_V02"
+          ],
+          "access_count": 95
+        },
+        "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA": {
+          "id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA",
+          "name": "Merged (Mixed Core Topics (Overloaded) (Cluster B) + Python Data Engineering)",
+          "description": "Consolidated module combining MOD_MIXED_CORE_B and MOD_PYTHON_DATA",
+          "record_ids": [
+            "REC_J06",
+            "REC_P02",
+            "REC_P05",
+            "REC_J02",
+            "REC_J05",
+            "REC_J01",
+            "REC_P06",
+            "REC_P04",
+            "REC_P01",
+            "REC_J03",
+            "REC_J04",
+            "REC_P03"
+          ],
+          "access_count": 41
+        }
+      },
+      "records": {
+        "REC_J01": {
+          "id": "REC_J01",
+          "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.136408,
+          "topic": "java_oop",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_J02": {
+          "id": "REC_J02",
+          "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.143258,
+          "topic": "java_oop",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_J03": {
+          "id": "REC_J03",
+          "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1500921,
+          "topic": "java_oop",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_J04": {
+          "id": "REC_J04",
+          "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.156478,
+          "topic": "java_oop",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_J05": {
+          "id": "REC_J05",
+          "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1632488,
+          "topic": "java_oop",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_J06": {
+          "id": "REC_J06",
+          "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.169832,
+          "topic": "java_oop",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_M01": {
+          "id": "REC_M01",
+          "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.176406,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M02": {
+          "id": "REC_M02",
+          "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1829288,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M03": {
+          "id": "REC_M03",
+          "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.189287,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M04": {
+          "id": "REC_M04",
+          "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.195625,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M05": {
+          "id": "REC_M05",
+          "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.202105,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M06": {
+          "id": "REC_M06",
+          "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.208435,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_V01": {
+          "id": "REC_V01",
+          "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.214881,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V02": {
+          "id": "REC_V02",
+          "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.220968,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V03": {
+          "id": "REC_V03",
+          "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2274199,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V04": {
+          "id": "REC_V04",
+          "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.234459,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V05": {
+          "id": "REC_V05",
+          "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.240957,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V06": {
+          "id": "REC_V06",
+          "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.247472,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V07": {
+          "id": "REC_V07",
+          "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2538419,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V08": {
+          "id": "REC_V08",
+          "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.260339,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V09": {
+          "id": "REC_V09",
+          "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.266864,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V10": {
+          "id": "REC_V10",
+          "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.273291,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_P01": {
+          "id": "REC_P01",
+          "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.279664,
+          "topic": "python_data",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_P02": {
+          "id": "REC_P02",
+          "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.286102,
+          "topic": "python_data",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_P03": {
+          "id": "REC_P03",
+          "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.29246,
+          "topic": "python_data",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_P04": {
+          "id": "REC_P04",
+          "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.299102,
+          "topic": "python_data",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_P05": {
+          "id": "REC_P05",
+          "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.30559,
+          "topic": "python_data",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_P06": {
+          "id": "REC_P06",
+          "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.312029,
+          "topic": "python_data",
+          "module_id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA"
+        },
+        "REC_ML01": {
+          "id": "REC_ML01",
+          "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.31855,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML02": {
+          "id": "REC_ML02",
+          "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3250718,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML03": {
+          "id": "REC_ML03",
+          "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.331607,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML04": {
+          "id": "REC_ML04",
+          "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.337887,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML05": {
+          "id": "REC_ML05",
+          "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.344249,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML06": {
+          "id": "REC_ML06",
+          "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.350795,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_DB01": {
+          "id": "REC_DB01",
+          "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.357109,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB02": {
+          "id": "REC_DB02",
+          "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.363549,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB03": {
+          "id": "REC_DB03",
+          "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.369923,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB04": {
+          "id": "REC_DB04",
+          "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3764842,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB05": {
+          "id": "REC_DB05",
+          "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.383005,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB06": {
+          "id": "REC_DB06",
+          "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.389285,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DS01": {
+          "id": "REC_DS01",
+          "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3961139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS02": {
+          "id": "REC_DS02",
+          "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4025779,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS03": {
+          "id": "REC_DS03",
+          "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.409139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS04": {
+          "id": "REC_DS04",
+          "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.415704,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS05": {
+          "id": "REC_DS05",
+          "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4221282,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS06": {
+          "id": "REC_DS06",
+          "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4284642,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        }
+      },
+      "graph_edges": [
+        [
+          "MOD_ML_MODELS",
+          "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "weight": 0.55,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ],
+        [
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ]
+      ],
+      "graph_nodes": [
+        [
+          "MOD_ML_MODELS",
+          {
+            "id": "MOD_ML_MODELS",
+            "name": "Machine Learning Pipelines",
+            "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+            "record_ids": [
+              "REC_ML01",
+              "REC_ML02",
+              "REC_ML03",
+              "REC_ML04",
+              "REC_ML05",
+              "REC_ML06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          {
+            "id": "MOD_DATABASE_SQL",
+            "name": "Relational Databases and SQL",
+            "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+            "record_ids": [
+              "REC_DB01",
+              "REC_DB02",
+              "REC_DB03",
+              "REC_DB04",
+              "REC_DB05",
+              "REC_DB06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "id": "MOD_DISTRIBUTED_SYSTEMS",
+            "name": "Distributed Systems",
+            "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+            "record_ids": [
+              "REC_DS01",
+              "REC_DS02",
+              "REC_DS03",
+              "REC_DS04",
+              "REC_DS05",
+              "REC_DS06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          {
+            "id": "MOD_MIXED_CORE_A",
+            "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+            "description": "Split cluster A from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_M01",
+              "REC_M02",
+              "REC_M03",
+              "REC_M04",
+              "REC_M05",
+              "REC_M06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+            "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+            "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+            "record_ids": [
+              "REC_V05",
+              "REC_V03",
+              "REC_V01",
+              "REC_V06",
+              "REC_V08",
+              "REC_V10",
+              "REC_V04",
+              "REC_V09",
+              "REC_V07",
+              "REC_V02"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA",
+          {
+            "id": "MERGED_MOD_MIXED_CORE_B_MOD_PYTHON_DATA",
+            "name": "Merged (Mixed Core Topics (Overloaded) (Cluster B) + Python Data Engineering)",
+            "description": "Consolidated module combining MOD_MIXED_CORE_B and MOD_PYTHON_DATA",
+            "record_ids": [
+              "REC_J06",
+              "REC_P02",
+              "REC_P05",
+              "REC_J02",
+              "REC_J05",
+              "REC_J01",
+              "REC_P06",
+              "REC_P04",
+              "REC_P01",
+              "REC_J03",
+              "REC_J04",
+              "REC_P03"
+            ],
+            "access_count": 0
+          }
+        ]
+      ]
+    },
+    {
+      "version": "V6",
+      "version_label": "Rollback to V4",
+      "description": "Restored graph topology and records from V4",
+      "timestamp": 1792868618.992224,
+      "status": "ACCEPTED",
+      "metrics": {
+        "mean_recall": 0.8594,
+        "mean_precision": 0.5312,
+        "mean_latency_ms": 10.82
+      },
+      "op_info": {},
+      "modules": {
+        "MOD_PYTHON_DATA": {
+          "id": "MOD_PYTHON_DATA",
+          "name": "Python Data Engineering",
+          "description": "Python data processing tools including NumPy and Pandas.",
+          "record_ids": [
+            "REC_P01",
+            "REC_P02",
+            "REC_P03",
+            "REC_P04",
+            "REC_P05",
+            "REC_P06"
+          ],
+          "access_count": 109
+        },
+        "MOD_ML_MODELS": {
+          "id": "MOD_ML_MODELS",
+          "name": "Machine Learning Pipelines",
+          "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+          "record_ids": [
+            "REC_ML01",
+            "REC_ML02",
+            "REC_ML03",
+            "REC_ML04",
+            "REC_ML05",
+            "REC_ML06"
+          ],
+          "access_count": 110
+        },
+        "MOD_DATABASE_SQL": {
+          "id": "MOD_DATABASE_SQL",
+          "name": "Relational Databases and SQL",
+          "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+          "record_ids": [
+            "REC_DB01",
+            "REC_DB02",
+            "REC_DB03",
+            "REC_DB04",
+            "REC_DB05",
+            "REC_DB06"
+          ],
+          "access_count": 84
+        },
+        "MOD_DISTRIBUTED_SYSTEMS": {
+          "id": "MOD_DISTRIBUTED_SYSTEMS",
+          "name": "Distributed Systems",
+          "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+          "record_ids": [
+            "REC_DS01",
+            "REC_DS02",
+            "REC_DS03",
+            "REC_DS04",
+            "REC_DS05",
+            "REC_DS06"
+          ],
+          "access_count": 84
+        },
+        "MOD_MIXED_CORE_A": {
+          "id": "MOD_MIXED_CORE_A",
+          "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+          "description": "Split cluster A from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_M01",
+            "REC_M02",
+            "REC_M03",
+            "REC_M04",
+            "REC_M05",
+            "REC_M06"
+          ],
+          "access_count": 72
+        },
+        "MOD_MIXED_CORE_B": {
+          "id": "MOD_MIXED_CORE_B",
+          "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+          "description": "Split cluster B from MOD_MIXED_CORE",
+          "record_ids": [
+            "REC_J01",
+            "REC_J02",
+            "REC_J03",
+            "REC_J04",
+            "REC_J05",
+            "REC_J06"
+          ],
+          "access_count": 76
+        },
+        "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL": {
+          "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+          "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+          "record_ids": [
+            "REC_V05",
+            "REC_V03",
+            "REC_V01",
+            "REC_V06",
+            "REC_V08",
+            "REC_V10",
+            "REC_V04",
+            "REC_V09",
+            "REC_V07",
+            "REC_V02"
+          ],
+          "access_count": 87
+        }
+      },
+      "records": {
+        "REC_J01": {
+          "id": "REC_J01",
+          "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.136408,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J02": {
+          "id": "REC_J02",
+          "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.143258,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J03": {
+          "id": "REC_J03",
+          "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1500921,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J04": {
+          "id": "REC_J04",
+          "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.156478,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J05": {
+          "id": "REC_J05",
+          "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1632488,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_J06": {
+          "id": "REC_J06",
+          "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.169832,
+          "topic": "java_oop",
+          "module_id": "MOD_MIXED_CORE_B"
+        },
+        "REC_M01": {
+          "id": "REC_M01",
+          "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.176406,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M02": {
+          "id": "REC_M02",
+          "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.1829288,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M03": {
+          "id": "REC_M03",
+          "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.189287,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M04": {
+          "id": "REC_M04",
+          "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.195625,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M05": {
+          "id": "REC_M05",
+          "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.202105,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_M06": {
+          "id": "REC_M06",
+          "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.208435,
+          "topic": "linear_algebra",
+          "module_id": "MOD_MIXED_CORE_A"
+        },
+        "REC_V01": {
+          "id": "REC_V01",
+          "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.214881,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V02": {
+          "id": "REC_V02",
+          "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.220968,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V03": {
+          "id": "REC_V03",
+          "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2274199,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V04": {
+          "id": "REC_V04",
+          "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.234459,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V05": {
+          "id": "REC_V05",
+          "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.240957,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V06": {
+          "id": "REC_V06",
+          "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.247472,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V07": {
+          "id": "REC_V07",
+          "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.2538419,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V08": {
+          "id": "REC_V08",
+          "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.260339,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V09": {
+          "id": "REC_V09",
+          "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.266864,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_V10": {
+          "id": "REC_V10",
+          "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.273291,
+          "topic": "vector_search",
+          "module_id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL"
+        },
+        "REC_P01": {
+          "id": "REC_P01",
+          "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.279664,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P02": {
+          "id": "REC_P02",
+          "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.286102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P03": {
+          "id": "REC_P03",
+          "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.29246,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P04": {
+          "id": "REC_P04",
+          "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.299102,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P05": {
+          "id": "REC_P05",
+          "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.30559,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_P06": {
+          "id": "REC_P06",
+          "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.312029,
+          "topic": "python_data",
+          "module_id": "MOD_PYTHON_DATA"
+        },
+        "REC_ML01": {
+          "id": "REC_ML01",
+          "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.31855,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML02": {
+          "id": "REC_ML02",
+          "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3250718,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML03": {
+          "id": "REC_ML03",
+          "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.331607,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML04": {
+          "id": "REC_ML04",
+          "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.337887,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML05": {
+          "id": "REC_ML05",
+          "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.344249,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_ML06": {
+          "id": "REC_ML06",
+          "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.350795,
+          "topic": "ml_models",
+          "module_id": "MOD_ML_MODELS"
+        },
+        "REC_DB01": {
+          "id": "REC_DB01",
+          "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.357109,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB02": {
+          "id": "REC_DB02",
+          "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.363549,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB03": {
+          "id": "REC_DB03",
+          "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.369923,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB04": {
+          "id": "REC_DB04",
+          "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3764842,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB05": {
+          "id": "REC_DB05",
+          "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.383005,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DB06": {
+          "id": "REC_DB06",
+          "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.389285,
+          "topic": "relational_db",
+          "module_id": "MOD_DATABASE_SQL"
+        },
+        "REC_DS01": {
+          "id": "REC_DS01",
+          "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.3961139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS02": {
+          "id": "REC_DS02",
+          "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4025779,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS03": {
+          "id": "REC_DS03",
+          "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.409139,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS04": {
+          "id": "REC_DS04",
+          "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.415704,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS05": {
+          "id": "REC_DS05",
+          "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4221282,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        },
+        "REC_DS06": {
+          "id": "REC_DS06",
+          "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.",
+          "source": "benchmark_data",
+          "timestamp": 1792868613.4284642,
+          "topic": "distributed_systems",
+          "module_id": "MOD_DISTRIBUTED_SYSTEMS"
+        }
+      },
+      "graph_edges": [
+        [
+          "MOD_PYTHON_DATA",
+          "MOD_ML_MODELS",
+          {
+            "weight": 0.85,
+            "is_shortcut": true,
+            "co_access": 59
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "weight": 0.55,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "weight": 0.8,
+            "co_access": 0
+          }
+        ]
+      ],
+      "graph_nodes": [
+        [
+          "MOD_PYTHON_DATA",
+          {
+            "id": "MOD_PYTHON_DATA",
+            "name": "Python Data Engineering",
+            "description": "Python data processing tools including NumPy and Pandas.",
+            "record_ids": [
+              "REC_P01",
+              "REC_P02",
+              "REC_P03",
+              "REC_P04",
+              "REC_P05",
+              "REC_P06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_ML_MODELS",
+          {
+            "id": "MOD_ML_MODELS",
+            "name": "Machine Learning Pipelines",
+            "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+            "record_ids": [
+              "REC_ML01",
+              "REC_ML02",
+              "REC_ML03",
+              "REC_ML04",
+              "REC_ML05",
+              "REC_ML06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DATABASE_SQL",
+          {
+            "id": "MOD_DATABASE_SQL",
+            "name": "Relational Databases and SQL",
+            "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+            "record_ids": [
+              "REC_DB01",
+              "REC_DB02",
+              "REC_DB03",
+              "REC_DB04",
+              "REC_DB05",
+              "REC_DB06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_DISTRIBUTED_SYSTEMS",
+          {
+            "id": "MOD_DISTRIBUTED_SYSTEMS",
+            "name": "Distributed Systems",
+            "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+            "record_ids": [
+              "REC_DS01",
+              "REC_DS02",
+              "REC_DS03",
+              "REC_DS04",
+              "REC_DS05",
+              "REC_DS06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_A",
+          {
+            "id": "MOD_MIXED_CORE_A",
+            "name": "Mixed Core Topics (Overloaded) (Cluster A)",
+            "description": "Split cluster A from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_M01",
+              "REC_M02",
+              "REC_M03",
+              "REC_M04",
+              "REC_M05",
+              "REC_M06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MOD_MIXED_CORE_B",
+          {
+            "id": "MOD_MIXED_CORE_B",
+            "name": "Mixed Core Topics (Overloaded) (Cluster B)",
+            "description": "Split cluster B from MOD_MIXED_CORE",
+            "record_ids": [
+              "REC_J01",
+              "REC_J02",
+              "REC_J03",
+              "REC_J04",
+              "REC_J05",
+              "REC_J06"
+            ],
+            "access_count": 0
+          }
+        ],
+        [
+          "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+          {
+            "id": "MERGED_MOD_VECTOR_INDEX_MOD_EMBEDDING_RETRIEVAL",
+            "name": "Merged (Vector Index Structures + Dense Embedding Search)",
+            "description": "Consolidated module combining MOD_VECTOR_INDEX and MOD_EMBEDDING_RETRIEVAL",
+            "record_ids": [
+              "REC_V05",
+              "REC_V03",
+              "REC_V01",
+              "REC_V06",
+              "REC_V08",
+              "REC_V10",
+              "REC_V04",
+              "REC_V09",
+              "REC_V07",
+              "REC_V02"
+            ],
+            "access_count": 0
+          }
+        ]
+      ]
+    }
+  ]
+}
