@@ -521,6 +521,8 @@ class MemoryEngine:
 
         all_recalls = []
         all_precisions = []
+        all_f1s = []
+        all_accuracies = []
         query_details = []
 
         # Run accuracy evaluation
@@ -533,9 +535,13 @@ class MemoryEngine:
 
             rec = hits / len(expected) if expected else 0.0
             prec = hits / len(retrieved) if retrieved else 0.0
+            f1 = (2 * prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
+            acc = 1.0 if hits > 0 else 0.0  # Hit rate: proportion of queries with at least 1 relevant hit
 
             all_recalls.append(rec)
             all_precisions.append(prec)
+            all_f1s.append(f1)
+            all_accuracies.append(acc)
 
             query_details.append({
                 "id": q["id"],
@@ -543,7 +549,9 @@ class MemoryEngine:
                 "expected": list(expected),
                 "retrieved": list(retrieved),
                 "recall": round(rec, 4),
-                "precision": round(prec, 4)
+                "precision": round(prec, 4),
+                "f1_score": round(f1, 4),
+                "hit": bool(hits > 0)
             })
 
         # Average latency across multiple benchmark runs
@@ -557,11 +565,15 @@ class MemoryEngine:
 
         mean_recall = float(np.mean(all_recalls)) if all_recalls else 0.0
         mean_precision = float(np.mean(all_precisions)) if all_precisions else 0.0
+        mean_f1 = float(np.mean(all_f1s)) if all_f1s else 0.0
+        mean_accuracy = float(np.mean(all_accuracies)) if all_accuracies else 0.0
         mean_latency = float(np.mean(latencies)) if latencies else 0.0
 
         return {
             "mean_recall": round(mean_recall, 4),
             "mean_precision": round(mean_precision, 4),
+            "mean_f1": round(mean_f1, 4),
+            "hit_rate_accuracy": round(mean_accuracy, 4),
             "mean_latency_ms": round(mean_latency, 2),
             "query_count": len(self.benchmark_queries),
             "details": query_details
