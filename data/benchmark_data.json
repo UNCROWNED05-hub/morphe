@@ -1,103 +1,119 @@
 {
   "dataset_info": {
-    "name": "MORPHE Evaluation Benchmark V2",
-    "description": "Expanded technical dataset with 46 records and 16 frozen benchmark queries designed for measurable structural adaptation evaluation.",
-    "version": "2.0.0"
+    "name": "MORPHE Evaluation Benchmark V3",
+    "description": "68-record technical dataset across 7 modules with 16 frozen benchmark queries. All expected_record_ids semantically verified.",
+    "version": "3.0.0",
+    "source": "Hand-authored technical CS/ML knowledge records, MORPHE project benchmark suite",
+    "date": "2026-10-25"
   },
   "modules": [
     {
       "id": "MOD_MIXED_CORE",
       "name": "Mixed Core Topics (Overloaded)",
-      "description": "Overcrowded module combining Java Object-Oriented Programming and Linear Algebra Mathematics.",
+      "description": "Overcrowded module combining Java OOP and Linear Algebra — intentionally overloaded to trigger SPLIT.",
       "records": [
-        {"id": "REC_J01", "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism.", "topic": "java_oop"},
-        {"id": "REC_J02", "text": "Java classes can implement multiple interfaces but can extend only one abstract superclass.", "topic": "java_oop"},
-        {"id": "REC_J03", "text": "Method overriding allows a subclass in Java to define a specialized version of an inherited method.", "topic": "java_oop"},
-        {"id": "REC_J04", "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects.", "topic": "java_oop"},
-        {"id": "REC_J05", "text": "Abstract classes in Java cannot be directly instantiated and define common contracts for derived subclasses.", "topic": "java_oop"},
+        {"id": "REC_J01", "text": "Java supports object-oriented principles including encapsulation, inheritance, and polymorphism through class hierarchies.", "topic": "java_oop"},
+        {"id": "REC_J02", "text": "Java classes can implement multiple interfaces but extend only one abstract superclass, enabling flexible type contracts.", "topic": "java_oop"},
+        {"id": "REC_J03", "text": "Method overriding in Java allows a subclass to define a specialized version of an inherited method via runtime dispatch.", "topic": "java_oop"},
+        {"id": "REC_J04", "text": "Java garbage collector automatically deallocates heap memory occupied by unreferenced objects using generational collection.", "topic": "java_oop"},
+        {"id": "REC_J05", "text": "Abstract classes in Java cannot be instantiated directly and define common contracts enforced on all concrete subclasses.", "topic": "java_oop"},
         {"id": "REC_J06", "text": "Java Generics provide compile-time type safety by allowing classes and methods to operate on parameterized types.", "topic": "java_oop"},
-        {"id": "REC_M01", "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations.", "topic": "linear_algebra"},
-        {"id": "REC_M02", "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices.", "topic": "linear_algebra"},
-        {"id": "REC_M03", "text": "The inner dot product computes vector projection and normalizes to cosine similarity in metric spaces.", "topic": "linear_algebra"},
-        {"id": "REC_M04", "text": "Matrix multiplication distributes over addition and is associative but strictly non-commutative in general.", "topic": "linear_algebra"},
-        {"id": "REC_M05", "text": "Principal Component Analysis projects high-dimensional data onto orthogonal axes maximizing variance.", "topic": "linear_algebra"},
-        {"id": "REC_M06", "text": "Matrix determinants quantify the scaling factor of the transformation on volume spanned by column vectors.", "topic": "linear_algebra"}
+        {"id": "REC_J07", "text": "Java interfaces support default method implementations since Java 8, enabling backwards-compatible API evolution without breaking existing code.", "topic": "java_oop"},
+        {"id": "REC_J08", "text": "Java heap memory is partitioned into Young and Old Generation regions, with minor GC cycles targeting short-lived objects.", "topic": "java_oop"},
+        {"id": "REC_M01", "text": "Eigenvalues and eigenvectors characterize invariant directional vectors under linear matrix transformations, fundamental to PCA and spectral decomposition.", "topic": "linear_algebra"},
+        {"id": "REC_M02", "text": "Singular Value Decomposition factors any real matrix into left-singular, singular values, and right-singular matrices for low-rank approximation.", "topic": "linear_algebra"},
+        {"id": "REC_M03", "text": "The inner dot product computes vector projection and normalizes to cosine similarity in high-dimensional metric spaces.", "topic": "linear_algebra"},
+        {"id": "REC_M04", "text": "Matrix multiplication is associative and distributes over addition but is strictly non-commutative in general rectangular cases.", "topic": "linear_algebra"},
+        {"id": "REC_M05", "text": "Principal Component Analysis projects high-dimensional data onto orthogonal principal axes that maximize explained variance.", "topic": "linear_algebra"},
+        {"id": "REC_M06", "text": "Matrix determinants quantify the signed scaling factor of a linear transformation on the volume spanned by its column vectors.", "topic": "linear_algebra"}
       ]
     },
     {
       "id": "MOD_VECTOR_INDEX",
       "name": "Vector Index Structures",
-      "description": "Approximate nearest neighbors algorithms and vector index structures.",
+      "description": "Approximate nearest neighbor algorithms and vector index structures for large-scale similarity search.",
       "records": [
-        {"id": "REC_V01", "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization.", "topic": "vector_search"},
-        {"id": "REC_V02", "text": "Hierarchical Navigable Small World graphs offer logarithmic time complexity for vector similarity retrieval.", "topic": "vector_search"},
-        {"id": "REC_V03", "text": "Cosine distance and Euclidean L2 distance are standard distance metrics for comparing dense vector embeddings.", "topic": "vector_search"},
-        {"id": "REC_V04", "text": "Vector databases index high-dimensional embeddings generated by transformer models for semantic search.", "topic": "vector_search"},
-        {"id": "REC_V05", "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate search.", "topic": "vector_search"}
+        {"id": "REC_V01", "text": "FAISS provides fast approximate nearest neighbor search using inverted file index and product quantization techniques.", "topic": "vector_search"},
+        {"id": "REC_V02", "text": "Hierarchical Navigable Small World graphs (HNSW) offer logarithmic time complexity for dense vector similarity retrieval.", "topic": "vector_search"},
+        {"id": "REC_V03", "text": "Cosine distance and Euclidean L2 distance are the standard metrics for comparing dense vector embeddings in semantic search.", "topic": "vector_search"},
+        {"id": "REC_V04", "text": "Vector databases index high-dimensional embeddings generated by transformer encoder models for semantic retrieval.", "topic": "vector_search"},
+        {"id": "REC_V05", "text": "Inverted file index with flat quantization partitions vector space into Voronoi cells to accelerate approximate nearest neighbor search.", "topic": "vector_search"},
+        {"id": "REC_V11", "text": "HNSW builds a multi-layer proximity graph where upper layers provide coarse navigation and lower layers enable precise nearest neighbor search.", "topic": "vector_search"},
+        {"id": "REC_V12", "text": "Annoy uses random projection trees to partition vector space for memory-efficient approximate nearest neighbor similarity search.", "topic": "vector_search"}
       ]
     },
     {
       "id": "MOD_EMBEDDING_RETRIEVAL",
       "name": "Dense Embedding Search",
-      "description": "Dense embedding retrieval systems and vector comparison techniques (near-duplicate of Vector Index Structures).",
+      "description": "Dense embedding retrieval systems and vector comparison techniques — near-duplicate of Vector Index Structures to trigger MERGE.",
       "records": [
-        {"id": "REC_V06", "text": "Dense vector retrieval systems utilize approximate nearest neighbors algorithms to compare query embeddings against documents.", "topic": "vector_search"},
-        {"id": "REC_V07", "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear time.", "topic": "vector_search"},
-        {"id": "REC_V08", "text": "Product Quantization compresses dense vector representations to reduce memory usage in large-scale vector search engines.", "topic": "vector_search"},
-        {"id": "REC_V09", "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity distance thresholds.", "topic": "vector_search"},
-        {"id": "REC_V10", "text": "Vector similarity search engines query dense embedding vectors generated by encoder neural models.", "topic": "vector_search"}
+        {"id": "REC_V06", "text": "Dense vector retrieval systems utilize approximate nearest neighbor algorithms to compare query embeddings against stored document vectors.", "topic": "vector_search"},
+        {"id": "REC_V07", "text": "HNSW index structures enable scalable semantic search across millions of dense embedding vectors in sub-linear query time.", "topic": "vector_search"},
+        {"id": "REC_V08", "text": "Product Quantization compresses dense vector representations by encoding subvectors into codebook centroids, reducing memory in large-scale search.", "topic": "vector_search"},
+        {"id": "REC_V09", "text": "Dense vector retrieval compares high-dimensional semantic vectors using cosine similarity and angular distance thresholds for ranking.", "topic": "vector_search"},
+        {"id": "REC_V10", "text": "Vector similarity search engines query dense embedding vectors generated by sentence encoder neural models against indexed corpora.", "topic": "vector_search"},
+        {"id": "REC_V13", "text": "Re-ranking pipelines apply cross-encoder models on top of bi-encoder ANN retrieval to improve precision on the final result set.", "topic": "vector_search"},
+        {"id": "REC_V14", "text": "Bi-encoder models independently encode query and document into fixed-length vectors enabling precomputed offline indexing for fast retrieval.", "topic": "vector_search"}
       ]
     },
     {
       "id": "MOD_PYTHON_DATA",
       "name": "Python Data Engineering",
-      "description": "Python data processing tools including NumPy and Pandas.",
+      "description": "Python data processing tools including NumPy, Pandas, and Polars for numerical and tabular data workflows.",
       "records": [
-        {"id": "REC_P01", "text": "NumPy provides ndarray objects for efficient vector and matrix computations in Python.", "topic": "python_data"},
-        {"id": "REC_P02", "text": "Pandas DataFrames support tabular data manipulation, filtering, aggregation, and time-series operations.", "topic": "python_data"},
-        {"id": "REC_P03", "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API.", "topic": "python_data"},
-        {"id": "REC_P04", "text": "Vectorized operations in NumPy eliminate explicit Python loops for substantial performance acceleration.", "topic": "python_data"},
-        {"id": "REC_P05", "text": "Python classes support object-oriented programming with multiple inheritance, method overriding, and dynamic polymorphism.", "topic": "python_data"},
-        {"id": "REC_P06", "text": "Python abstract base classes define blueprint interface contracts and enforce abstract method implementations on subclasses.", "topic": "python_data"}
+        {"id": "REC_P01", "text": "NumPy provides ndarray objects for efficient multi-dimensional vector and matrix computations in Python with C-speed performance.", "topic": "python_data"},
+        {"id": "REC_P02", "text": "Pandas DataFrames support tabular data manipulation including filtering, aggregation, groupby, merge, and time-series resampling.", "topic": "python_data"},
+        {"id": "REC_P03", "text": "Polars is an ultra-fast columnar DataFrame library implemented in Rust with a Python API, outperforming Pandas on large datasets.", "topic": "python_data"},
+        {"id": "REC_P04", "text": "Vectorized operations in NumPy eliminate explicit Python loops, providing substantial performance acceleration for array computations.", "topic": "python_data"},
+        {"id": "REC_P05", "text": "NumPy universal functions (ufuncs) apply element-wise mathematical operations across arrays with broadcasting rules for shape compatibility.", "topic": "python_data"},
+        {"id": "REC_P06", "text": "Pandas read_csv and to_parquet functions handle columnar data ingestion and serialization for efficient DataFrame storage and retrieval.", "topic": "python_data"},
+        {"id": "REC_P07", "text": "Pandas groupby with aggregate functions like sum, mean, and count enables split-apply-combine analytics on tabular datasets.", "topic": "python_data"},
+        {"id": "REC_P08", "text": "NumPy linalg module provides linear algebra routines including matrix inversion, least-squares solvers, and eigenvalue decomposition.", "topic": "python_data"}
       ]
     },
     {
       "id": "MOD_ML_MODELS",
       "name": "Machine Learning Pipelines",
-      "description": "PyTorch deep learning model architectures, training loops, and optimization routines.",
+      "description": "PyTorch deep learning model architectures, training loops, optimization routines, and data loading.",
       "records": [
-        {"id": "REC_ML01", "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network optimization.", "topic": "ml_models"},
-        {"id": "REC_ML02", "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels.", "topic": "ml_models"},
-        {"id": "REC_ML03", "text": "Adam optimizer dynamically adapts learning rates using first and second momentum estimates of gradients.", "topic": "ml_models"},
-        {"id": "REC_ML04", "text": "DataLoaders in PyTorch handle batching, shuffling, and multi-threaded data prefetching for model training.", "topic": "ml_models"},
-        {"id": "REC_ML05", "text": "Backpropagation computes the gradient of the loss function with respect to model parameters via chain rule.", "topic": "ml_models"},
-        {"id": "REC_ML06", "text": "Dropout regularization randomly deactivates neural connections during training to mitigate model overfitting.", "topic": "ml_models"}
+        {"id": "REC_ML01", "text": "PyTorch tensors support automatic differentiation via autograd for gradient-based neural network training and optimization.", "topic": "ml_models"},
+        {"id": "REC_ML02", "text": "Cross-entropy loss measures the discrepancy between predicted probability distributions and true categorical labels in classification.", "topic": "ml_models"},
+        {"id": "REC_ML03", "text": "Adam optimizer dynamically adapts per-parameter learning rates using first and second momentum estimates of gradient history.", "topic": "ml_models"},
+        {"id": "REC_ML04", "text": "PyTorch DataLoaders handle batching, shuffling, and multi-threaded data prefetching from datasets for efficient model training.", "topic": "ml_models"},
+        {"id": "REC_ML05", "text": "Backpropagation computes the gradient of the loss function with respect to all model parameters via reverse-mode automatic differentiation.", "topic": "ml_models"},
+        {"id": "REC_ML06", "text": "Dropout regularization randomly deactivates a fraction of neural connections during training to prevent overfitting on small datasets.", "topic": "ml_models"},
+        {"id": "REC_ML07", "text": "Learning rate schedulers in PyTorch dynamically reduce the step size during training to stabilize convergence near loss minima.", "topic": "ml_models"},
+        {"id": "REC_ML08", "text": "Batch normalization standardizes intermediate layer activations during training to reduce internal covariate shift and accelerate convergence.", "topic": "ml_models"}
       ]
     },
     {
       "id": "MOD_DATABASE_SQL",
       "name": "Relational Databases and SQL",
-      "description": "Relational database concepts, schema normalization, ACID transactions, and indexing.",
+      "description": "Relational database concepts, schema normalization, ACID transactions, indexing, and query optimization.",
       "records": [
-        {"id": "REC_DB01", "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability.", "topic": "relational_db"},
-        {"id": "REC_DB02", "text": "B-Tree indexes provide logarithmic time lookups for equality and range queries in relational database tables.", "topic": "relational_db"},
-        {"id": "REC_DB03", "text": "Database normalization organizes tables to minimize data redundancy and eliminate update anomalies.", "topic": "relational_db"},
-        {"id": "REC_DB04", "text": "SQL JOIN operations combine rows from two or more tables based on a related common key column.", "topic": "relational_db"},
-        {"id": "REC_DB05", "text": "Foreign key constraints preserve referential integrity between child and parent tables in SQL schemas.", "topic": "relational_db"},
-        {"id": "REC_DB06", "text": "Write-Ahead Logging ensures database transactions can be recovered after power failures or crashes.", "topic": "relational_db"}
+        {"id": "REC_DB01", "text": "Relational databases enforce ACID guarantees: Atomicity, Consistency, Isolation, and Durability for reliable transaction processing.", "topic": "relational_db"},
+        {"id": "REC_DB02", "text": "B-Tree indexes provide logarithmic time complexity for equality and range query lookups in relational database tables.", "topic": "relational_db"},
+        {"id": "REC_DB03", "text": "Database normalization organizes schema tables into normal forms to minimize data redundancy and eliminate update anomalies.", "topic": "relational_db"},
+        {"id": "REC_DB04", "text": "SQL JOIN operations combine rows from two or more tables based on related key columns to query across relationships.", "topic": "relational_db"},
+        {"id": "REC_DB05", "text": "Foreign key constraints preserve referential integrity between child and parent tables by preventing orphaned records in SQL schemas.", "topic": "relational_db"},
+        {"id": "REC_DB06", "text": "Write-Ahead Logging ensures committed database transactions can be fully recovered after power failures or unexpected crashes.", "topic": "relational_db"},
+        {"id": "REC_DB07", "text": "PostgreSQL query execution plans show whether the optimizer uses sequential scan, index scan, or bitmap scan for each relation.", "topic": "relational_db"},
+        {"id": "REC_DB08", "text": "Connection pooling via PgBouncer reduces overhead of establishing new PostgreSQL connections under high concurrency workloads.", "topic": "relational_db"}
       ]
     },
     {
       "id": "MOD_DISTRIBUTED_SYSTEMS",
       "name": "Distributed Systems",
-      "description": "Distributed systems fundamentals, consensus algorithms, replication, and partitioning.",
+      "description": "Distributed systems fundamentals: consensus algorithms, replication, partitioning, and fault tolerance.",
       "records": [
-        {"id": "REC_DS01", "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, Partition tolerance.", "topic": "distributed_systems"},
-        {"id": "REC_DS02", "text": "Raft consensus algorithm selects a leader to manage replicated state machines across distributed cluster nodes.", "topic": "distributed_systems"},
-        {"id": "REC_DS03", "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed.", "topic": "distributed_systems"},
-        {"id": "REC_DS04", "text": "Two-Phase Commit coordinates atomic transactions across autonomous distributed database nodes.", "topic": "distributed_systems"},
-        {"id": "REC_DS05", "text": "Gossip protocols disseminate membership state across large peer-to-peer networks with high fault tolerance.", "topic": "distributed_systems"},
-        {"id": "REC_DS06", "text": "Vector clocks track causality and detect concurrent updates in distributed key-value storage systems.", "topic": "distributed_systems"}
+        {"id": "REC_DS01", "text": "The CAP theorem states a distributed data store can guarantee at most two of Consistency, Availability, and Partition tolerance simultaneously.", "topic": "distributed_systems"},
+        {"id": "REC_DS02", "text": "Raft consensus algorithm selects a leader node to manage replicated log state machines across distributed cluster nodes via heartbeat.", "topic": "distributed_systems"},
+        {"id": "REC_DS03", "text": "Consistent hashing minimizes key remapping when distributed cache nodes are dynamically added or removed from the ring.", "topic": "distributed_systems"},
+        {"id": "REC_DS04", "text": "Two-Phase Commit coordinates atomic transaction commits across autonomous distributed database nodes with a prepare-then-commit protocol.", "topic": "distributed_systems"},
+        {"id": "REC_DS05", "text": "Gossip protocols disseminate membership and state changes across large peer-to-peer networks with eventual consistency guarantees.", "topic": "distributed_systems"},
+        {"id": "REC_DS06", "text": "Vector clocks track causality and detect concurrent conflicting updates in distributed key-value storage systems across replicas.", "topic": "distributed_systems"},
+        {"id": "REC_DS07", "text": "Paxos is a consensus protocol that guarantees agreement among a quorum of distributed nodes despite minority node failures.", "topic": "distributed_systems"},
+        {"id": "REC_DS08", "text": "Eventual consistency allows distributed replicas to temporarily diverge and converge asynchronously, prioritizing availability over immediate consistency.", "topic": "distributed_systems"}
       ]
     }
   ],
@@ -109,13 +125,13 @@
   "benchmark_queries": [
     {
       "id": "Q01",
-      "query": "How do Java classes handle inheritance and polymorphism?",
+      "query": "How do Java classes handle inheritance and polymorphism through method overriding?",
       "expected_record_ids": ["REC_J01", "REC_J02", "REC_J03", "REC_J05"]
     },
     {
       "id": "Q02",
-      "query": "How does Java garbage collection manage heap memory and object lifecycles?",
-      "expected_record_ids": ["REC_J04"]
+      "query": "How does Java garbage collection manage heap memory and object lifecycle in the JVM?",
+      "expected_record_ids": ["REC_J04", "REC_J08"]
     },
     {
       "id": "Q03",
@@ -130,7 +146,7 @@
     {
       "id": "Q05",
       "query": "How does FAISS and HNSW graph indexing perform approximate nearest neighbor search?",
-      "expected_record_ids": ["REC_V01", "REC_V02", "REC_V07"]
+      "expected_record_ids": ["REC_V01", "REC_V02", "REC_V07", "REC_V11"]
     },
     {
       "id": "Q06",
@@ -139,18 +155,18 @@
     },
     {
       "id": "Q07",
-      "query": "How does product quantization compress high dimensional vector embeddings for search engines?",
+      "query": "How does product quantization compress high dimensional vector embeddings for large-scale search engines?",
       "expected_record_ids": ["REC_V01", "REC_V08"]
     },
     {
       "id": "Q08",
-      "query": "How do NumPy ndarrays and vectorization accelerate mathematical computations in Python?",
+      "query": "How do NumPy ndarrays, vectorization, and ufuncs accelerate mathematical computations in Python?",
       "expected_record_ids": ["REC_P01", "REC_P04", "REC_P05"]
     },
     {
       "id": "Q09",
-      "query": "How do Pandas DataFrames and Polars handle tabular data filtering and manipulation?",
-      "expected_record_ids": ["REC_P02", "REC_P03", "REC_P06"]
+      "query": "How do Pandas DataFrames and Polars handle tabular data filtering, aggregation, and manipulation?",
+      "expected_record_ids": ["REC_P02", "REC_P03", "REC_P07"]
     },
     {
       "id": "Q10",
@@ -159,32 +175,32 @@
     },
     {
       "id": "Q11",
-      "query": "What optimization techniques like Adam and cross-entropy loss are used in deep learning training?",
-      "expected_record_ids": ["REC_ML02", "REC_ML03"]
+      "query": "What optimization techniques like Adam, learning rate scheduling, and cross-entropy loss are used in deep learning training?",
+      "expected_record_ids": ["REC_ML02", "REC_ML03", "REC_ML07"]
     },
     {
       "id": "Q12",
-      "query": "How do Pandas DataFrames integrate with PyTorch DataLoaders in end-to-end training workflows?",
+      "query": "How do Pandas DataFrames integrate with PyTorch DataLoaders in end-to-end model training workflows?",
       "expected_record_ids": ["REC_P02", "REC_ML04"]
     },
     {
       "id": "Q13",
-      "query": "How does NumPy array preprocessing feed into neural network tensor transformations?",
+      "query": "How does NumPy array preprocessing feed into PyTorch neural network tensor transformations?",
       "expected_record_ids": ["REC_P01", "REC_ML01"]
     },
     {
       "id": "Q14",
-      "query": "What ACID guarantees and indexing structures are fundamental to relational databases?",
+      "query": "What ACID guarantees, WAL, and B-Tree indexing structures are fundamental to relational databases?",
       "expected_record_ids": ["REC_DB01", "REC_DB02", "REC_DB06"]
     },
     {
       "id": "Q15",
-      "query": "How do consensus protocols like Raft and the CAP theorem govern distributed systems?",
-      "expected_record_ids": ["REC_DS01", "REC_DS02"]
+      "query": "How do consensus protocols like Raft and Paxos together with the CAP theorem govern distributed systems?",
+      "expected_record_ids": ["REC_DS01", "REC_DS02", "REC_DS07"]
     },
     {
       "id": "Q16",
-      "query": "How do consistent hashing and vector clocks handle partitioned distributed key-value stores?",
+      "query": "How do consistent hashing and vector clocks handle partitioned distributed key-value stores under network splits?",
       "expected_record_ids": ["REC_DS03", "REC_DS06"]
     }
   ]
