@@ -2,38 +2,45 @@ import streamlit as st
 
 THEME_CSS = """
 :root {
-  /* Core dark palette */
-  --bg: #0A0A0F;
-  --surface: #111118;
-  --surface-2: #1A1A24;
-  --border: #2A2A38;
-  --border-bright: #3A3A50;
+  /* Core refined slate-charcoal palette (Executive Dark) */
+  --bg: #0D1117;
+  --surface: #161B22;
+  --surface-2: #21262D;
+  --border: #30363D;
+  --border-bright: #484F58;
 
-  /* Text */
-  --ink: #E8E8F0;
-  --ink-soft: #8888A8;
-  --ink-dim: #555568;
+  /* Crisp Typography */
+  --ink: #F0F6FC;
+  --ink-soft: #8B949E;
+  --ink-dim: #6E7681;
 
-  /* Accent colors */
-  --violet: #7C6AF7;
-  --violet-dim: rgba(124, 106, 247, 0.15);
-  --violet-glow: rgba(124, 106, 247, 0.3);
-  --amber: #F5A623;
-  --amber-dim: rgba(245, 166, 35, 0.15);
-  --green: #3DD68C;
-  --green-dim: rgba(61, 214, 140, 0.12);
-  --red: #F56565;
-  --red-dim: rgba(245, 101, 101, 0.12);
-  --blue: #63B3ED;
-  --blue-dim: rgba(99, 179, 237, 0.12);
+  /* Clean Corporate Tech Accents (Blue instead of Purple) */
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-dim: rgba(37, 99, 235, 0.12);
+
+  /* Aliased for component backwards compatibility */
+  --violet: #2563EB;
+  --violet-dim: rgba(37, 99, 235, 0.12);
+  --violet-glow: rgba(37, 99, 235, 0.2);
+
+  /* Subtle, non-neon status accents */
+  --amber: #D97706;
+  --amber-dim: rgba(217, 119, 6, 0.12);
+  --green: #10B981;
+  --green-dim: rgba(16, 185, 129, 0.12);
+  --red: #DC2626;
+  --red-dim: rgba(220, 38, 38, 0.12);
+  --blue: #0284C7;
+  --blue-dim: rgba(2, 132, 199, 0.12);
 
   /* Topic fills */
-  --topic-1: #7C6AF7;
-  --topic-2: #3DD68C;
-  --topic-3: #F5A623;
-  --topic-4: #63B3ED;
-  --topic-5: #F56565;
-  --topic-6: #D6BCFA;
+  --topic-1: #2563EB;
+  --topic-2: #10B981;
+  --topic-3: #D97706;
+  --topic-4: #0284C7;
+  --topic-5: #DC2626;
+  --topic-6: #475569;
 
   --radius-sm: 4px;
   --radius: 8px;
@@ -107,8 +114,10 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
   background: var(--surface-2) !important;
 }
 [data-testid="stSidebar"] .stPageLink a[aria-current="page"] {
-  color: var(--violet) !important;
-  background: var(--violet-dim) !important;
+  color: var(--ink) !important;
+  background: var(--surface-2) !important;
+  border-left: 3px solid var(--primary) !important;
+  font-weight: 600 !important;
 }
 
 /* ---- Inputs ---- */
@@ -120,8 +129,8 @@ input, textarea, [data-baseweb="input"] input {
   font-family: 'Atkinson Hyperlegible', sans-serif !important;
 }
 input:focus, textarea:focus {
-  border-color: var(--violet) !important;
-  box-shadow: 0 0 0 3px var(--violet-glow) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
 }
 
 /* ---- Buttons ---- */
@@ -133,24 +142,24 @@ button, .stButton > button {
   height: 38px !important;
 }
 .stButton > button[kind="primary"] {
-  background: var(--violet) !important;
+  background: var(--primary) !important;
   color: #fff !important;
   border: none !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 .stButton > button[kind="primary"]:hover {
-  background: #8f7ef9 !important;
+  background: var(--primary-hover) !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 16px var(--violet-glow) !important;
 }
 .stButton > button[kind="secondary"] {
-  background: transparent !important;
+  background: var(--surface-2) !important;
   color: var(--ink-soft) !important;
-  border: 1px solid var(--border-bright) !important;
+  border: 1px solid var(--border) !important;
 }
 .stButton > button[kind="secondary"]:hover {
   color: var(--ink) !important;
-  border-color: var(--violet) !important;
-  background: var(--violet-dim) !important;
+  border-color: var(--border-bright) !important;
+  background: #28303B !important;
 }
 
 /* ---- Select boxes ---- */

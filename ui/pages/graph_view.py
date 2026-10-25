@@ -48,54 +48,55 @@ def render():
 
         if view_mode == "Table View":
             st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 16px;'>Modules (Nodes)</h3>", unsafe_allow_html=True)
-            nodes_table = """
-            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            nodes_table += """
+            <table class="data-table">
                 <thead>
-                    <tr style="border-bottom: 1px solid var(--rule); text-align: left; color: var(--ink-soft);">
-                        <th style="padding: 6px 4px;">Module ID</th>
-                        <th style="padding: 6px 4px;">Label</th>
-                        <th style="padding: 6px 4px;">Topic</th>
-                        <th style="padding: 6px 4px;">Record Count</th>
-                        <th style="padding: 6px 4px;">Access Count</th>
+                    <tr>
+                        <th>Module ID</th>
+                        <th>Label</th>
+                        <th>Topic</th>
+                        <th>Record Count</th>
+                        <th>Access Count</th>
                     </tr>
                 </thead>
                 <tbody>
             """
             for n in payload["nodes"]:
                 nodes_table += f"""
-                <tr style="border-bottom: 1px solid rgba(211,217,210,0.4);">
-                    <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{n['id']}</td>
-                    <td style="padding: 6px 4px;">{n['label']}</td>
-                    <td style="padding: 6px 4px;">{n['topic']}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{n['record_count']}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{n['access_count']}</td>
+                <tr>
+                    <td class="mono strong">{n['id']}</td>
+                    <td>{n['label']}</td>
+                    <td><span class="badge" style="background: var(--surface-2); border: 1px solid var(--border); color: var(--ink);">{n['topic']}</span></td>
+                    <td class="mono">{n['record_count']}</td>
+                    <td class="mono">{n['access_count']}</td>
                 </tr>
                 """
             nodes_table += "</tbody></table>"
             st.markdown(nodes_table, unsafe_allow_html=True)
 
-            st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 24px;'>Pathways (Edges)</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 24px; color: var(--ink);'>Pathways (Edges)</h3>", unsafe_allow_html=True)
             edges_table = """
-            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <table class="data-table">
                 <thead>
-                    <tr style="border-bottom: 1px solid var(--rule); text-align: left; color: var(--ink-soft);">
-                        <th style="padding: 6px 4px;">Source</th>
-                        <th style="padding: 6px 4px;">Target</th>
-                        <th style="padding: 6px 4px;">Kind</th>
-                        <th style="padding: 6px 4px;">Weight</th>
-                        <th style="padding: 6px 4px;">Co-Access Count</th>
+                    <tr>
+                        <th>Source</th>
+                        <th>Target</th>
+                        <th>Kind</th>
+                        <th>Weight</th>
+                        <th>Co-Access Count</th>
                     </tr>
                 </thead>
                 <tbody>
             """
             for e in payload["edges"]:
+                kind_badge = "badge-amber" if e['kind'] == 'shortcut' else "badge-blue"
                 edges_table += f"""
-                <tr style="border-bottom: 1px solid rgba(211,217,210,0.4);">
-                    <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{e['source']}</td>
-                    <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{e['target']}</td>
-                    <td style="padding: 6px 4px;">{e['kind']}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{e['weight']:.3f}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{e['co_access']}</td>
+                <tr>
+                    <td class="mono strong">{e['source']}</td>
+                    <td class="mono strong">{e['target']}</td>
+                    <td><span class="badge {kind_badge}">{e['kind']}</span></td>
+                    <td class="mono">{e['weight']:.3f}</td>
+                    <td class="mono">{e['co_access']}</td>
                 </tr>
                 """
             edges_table += "</tbody></table>"
@@ -104,18 +105,18 @@ def render():
         else:
             # Legend
             st.markdown("""
-            <div style="display: flex; gap: 16px; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;">
-                <span style="display: inline-flex; align-items: center; gap: 4px;">
-                    <span style="width: 12px; height: 12px; border-radius: 2px; background: #1E4D6B;"></span> Semantic Module
+            <div style="display: flex; gap: 20px; font-size: 12px; color: var(--ink-soft); margin-bottom: 12px; padding: 8px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);">
+                <span style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span style="width: 10px; height: 10px; border-radius: 2px; background: #2563EB;"></span> Semantic Module
                 </span>
-                <span style="display: inline-flex; align-items: center; gap: 4px;">
-                    <span style="width: 12px; height: 12px; border-radius: 2px; border: 2px solid #F0B429;"></span> Reconfigured / Changed
+                <span style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span style="width: 10px; height: 10px; border-radius: 2px; border: 2px solid #D97706;"></span> Changed Module
                 </span>
-                <span style="display: inline-flex; align-items: center; gap: 4px;">
-                    <span style="width: 16px; height: 2px; background: #1E4D6B;"></span> Semantic Pathway
+                <span style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span style="width: 14px; height: 2px; background: #3B82F6;"></span> Cluster Pathway
                 </span>
-                <span style="display: inline-flex; align-items: center; gap: 4px;">
-                    <span style="width: 16px; height: 2px; border-top: 2px dashed #F0B429;"></span> Shortcut Connection
+                <span style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span style="width: 14px; height: 2px; border-top: 2px dashed #D97706;"></span> Learned Shortcut
                 </span>
             </div>
             """, unsafe_allow_html=True)
@@ -152,36 +153,36 @@ def render():
             if selected_node:
                 mod = adapter.get_module(selected_node)
                 st.markdown(f"""
-                <div style="background: #F8FAF7; border: 1px solid var(--rule); border-radius: 4px; padding: 16px; margin-top: 16px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--rule); pb: 8px;">
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-top: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
                         <span style="font-size: 16px; font-weight: 700; color: var(--ink);">Module Inspector: {mod.label}</span>
-                        <span class="mono-val status-tag status-baseline">ID: {mod.id}</span>
+                        <span class="mono badge badge-blue">ID: {mod.id}</span>
                     </div>
-                    <div style="display: flex; gap: 24px; margin: 12px 0; font-size: 13px;">
-                        <div><strong>Records:</strong> <span class="mono-val">{len(mod.record_ids)}</span></div>
-                        <div><strong>Access Utilization:</strong> <span class="mono-val">{mod.access_count} queries</span></div>
-                        <div><strong>Direct Graph Neighbors:</strong> <span class="mono-val">{', '.join(mod.neighbors) if mod.neighbors else 'None'}</span></div>
+                    <div style="display: flex; gap: 24px; margin: 14px 0; font-size: 13px; color: var(--ink-soft);">
+                        <div><strong style="color: var(--ink);">Records:</strong> <span class="mono" style="color: var(--ink);">{len(mod.record_ids)}</span></div>
+                        <div><strong style="color: var(--ink);">Access Utilization:</strong> <span class="mono" style="color: var(--ink);">{mod.access_count} queries</span></div>
+                        <div><strong style="color: var(--ink);">Direct Neighbors:</strong> <span class="mono" style="color: var(--ink);">{', '.join(mod.neighbors) if mod.neighbors else 'None'}</span></div>
                     </div>
-                    <div style="font-size: 13px; font-weight: 600; margin-top: 12px; margin-bottom: 6px;">Contained Records Excerpts:</div>
+                    <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); margin-top: 14px; margin-bottom: 8px;">Contained Records:</div>
                 </div>
                 """, unsafe_allow_html=True)
                 for r_id in mod.record_ids:
                     rec = adapter.engine.records.get(r_id, {})
                     st.markdown(f"""
-                    <div style="padding: 8px 12px; background: #FFFFFF; border: 1px solid var(--rule); border-radius: 2px; margin-bottom: 6px; font-size: 13px;">
-                        <span class="mono-val" style="font-weight: 600; color: var(--structure);">{r_id}:</span> {rec.get('text', '')}
+                    <div style="padding: 10px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 6px; font-size: 13px; color: var(--ink);">
+                        <span class="mono" style="font-weight: 600; color: var(--primary);">{r_id}:</span> {rec.get('text', '')}
                     </div>
                     """, unsafe_allow_html=True)
 
             elif selected_edge:
                 st.markdown(f"""
-                <div style="background: #F8FAF7; border: 1px solid var(--rule); border-radius: 4px; padding: 16px; margin-top: 16px;">
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-top: 16px;">
                     <span style="font-size: 16px; font-weight: 700; color: var(--ink);">Pathway Inspector</span>
-                    <div style="display: flex; gap: 20px; margin-top: 10px; font-size: 13px;">
-                        <div><strong>Pathway:</strong> <span class="mono-val">{selected_edge.get('source')} &harr; {selected_edge.get('target')}</span></div>
-                        <div><strong>Kind:</strong> <span class="status-tag status-change">{selected_edge.get('kind')}</span></div>
-                        <div><strong>Weight:</strong> <span class="mono-val">{selected_edge.get('weight')}</span></div>
-                        <div><strong>Co-Access Count:</strong> <span class="mono-val">{selected_edge.get('co_access')}</span></div>
+                    <div style="display: flex; gap: 24px; margin-top: 12px; font-size: 13px; color: var(--ink-soft);">
+                        <div><strong style="color: var(--ink);">Pathway:</strong> <span class="mono" style="color: var(--ink);">{selected_edge.get('source')} &harr; {selected_edge.get('target')}</span></div>
+                        <div><strong style="color: var(--ink);">Kind:</strong> <span class="badge badge-amber">{selected_edge.get('kind')}</span></div>
+                        <div><strong style="color: var(--ink);">Weight:</strong> <span class="mono" style="color: var(--ink);">{selected_edge.get('weight')}</span></div>
+                        <div><strong style="color: var(--ink);">Co-Access Count:</strong> <span class="mono" style="color: var(--ink);">{selected_edge.get('co_access')}</span></div>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)

@@ -16,21 +16,21 @@ GRAPH_HTML = """
 
 GRAPH_CSS = """
 :root {
-  --paper: #F2F4F0;
-  --ink: #0F1B24;
-  --ink-soft: #46555F;
-  --rule: #D3D9D2;
-  --structure: #1E4D6B;
-  --change: #F0B429;
-  --accepted: #2D6A4F;
-  --rejected: #B23A2E;
+  --canvas-bg: #0D1117;
+  --surface: #161B22;
+  --surface-2: #21262D;
+  --border: #30363D;
+  --ink: #F0F6FC;
+  --ink-soft: #8B949E;
+  --primary: #2563EB;
+  --change: #D97706;
 }
 
 .morphe-graph-root {
   width: 100%;
-  background: #FFFFFF;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   outline: none;
@@ -38,41 +38,43 @@ GRAPH_CSS = """
 }
 
 .morphe-graph-root:focus-visible {
-  border-color: var(--structure);
-  box-shadow: 0 0 0 2px var(--structure);
+  border-color: var(--primary);
 }
 
 .graph-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 14px;
-  background: #F8FAF7;
-  border-bottom: 1px solid var(--rule);
+  padding: 10px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
   font-size: 13px;
   color: var(--ink-soft);
 }
 
 .tool-btn {
-  background: transparent;
-  border: 1px solid var(--rule);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   color: var(--ink);
-  padding: 3px 10px;
-  border-radius: 2px;
+  padding: 4px 12px;
+  border-radius: 4px;
   font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 120ms ease-out;
+  transition: all 120ms ease-out;
 }
 .tool-btn:hover {
-  background: var(--paper);
+  background: #28303B;
+  border-color: #484F58;
 }
 
 .canvas-wrapper {
   width: 100%;
   height: 520px;
   position: relative;
-  background: radial-gradient(#E2E6DF 1px, transparent 1px);
-  background-size: 20px 20px;
+  background: var(--canvas-bg);
+  background-image: radial-gradient(#21262D 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
   overflow: hidden;
 }
 
@@ -89,34 +91,28 @@ svg:active {
 
 /* Edge styles */
 .edge-semantic {
-  stroke: var(--structure);
-  stroke-width: 1.75px;
-  opacity: 0.65;
-  transition: stroke 240ms ease-out, stroke-width 240ms ease-out;
+  stroke: #3B82F6;
+  stroke-width: 1.5px;
+  opacity: 0.55;
+  transition: stroke 200ms ease-out, stroke-width 200ms ease-out;
 }
 
 .edge-shortcut {
   stroke: var(--change);
-  stroke-width: 2.5px;
+  stroke-width: 2px;
   stroke-dasharray: 6 3;
-  opacity: 0.9;
-  animation: draw-shortcut 600ms ease-out forwards;
-}
-
-@keyframes draw-shortcut {
-  from { stroke-dashoffset: 60; }
-  to { stroke-dashoffset: 0; }
+  opacity: 0.85;
 }
 
 /* Node styles */
 .graph-node {
   cursor: pointer;
   outline: none;
-  transition: transform 180ms ease-out, opacity 180ms ease-out;
+  transition: transform 180ms ease-out;
 }
 
 .graph-node circle.main-circle {
-  stroke: #FFFFFF;
+  stroke: var(--surface);
   stroke-width: 2px;
   transition: stroke-width 180ms ease-out;
 }
@@ -126,33 +122,23 @@ svg:active {
   stroke-width: 3px;
 }
 
-.graph-node:focus-visible circle.main-circle {
-  stroke: var(--structure);
-  stroke-width: 4px;
-}
-
+.graph-node:focus-visible circle.main-circle,
 .graph-node.is-selected circle.main-circle {
-  stroke: var(--structure);
-  stroke-width: 4px;
+  stroke: var(--ink);
+  stroke-width: 3.5px;
 }
 
 .changed-ring {
   fill: none;
   stroke: var(--change);
-  stroke-width: 2.5px;
-  animation: pulse-ring 1.8s infinite;
-}
-
-@keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.15); opacity: 0.4; }
-  100% { transform: scale(1); opacity: 0.9; }
+  stroke-width: 2px;
+  stroke-dasharray: 4 2;
 }
 
 .node-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   fill: var(--ink);
   text-anchor: middle;
   pointer-events: none;
@@ -162,6 +148,7 @@ svg:active {
 .node-count {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
+  font-weight: 600;
   fill: #FFFFFF;
   text-anchor: middle;
   dominant-baseline: central;
