@@ -165,17 +165,23 @@ class EngineAdapter:
             QueryResultItem(
                 record_id=hit.get("record_id", hit.get("id", "")),
                 text=hit.get("text", ""),
-                score=float(hit.get("score", 0.0)),
+                score=float(hit.get("score", hit.get("similarity", 0.0))),
                 module_id=hit.get("module_id", "")
             )
             for hit in res.get("results", [])
         ]
+        visited = res.get("modules_accessed", res.get("visited_modules", []))
+        primary = res.get("primary_module", visited[0] if visited else "")
+        computed_path = res.get("path", [])
+        if not computed_path and primary and len(visited) > 1:
+            computed_path = [[primary, v] for v in visited if v != primary]
+
         return QueryResult(
             query=res.get("query", text),
             k=res.get("top_k", k_val),
             results=items,
-            modules_accessed=res.get("modules_accessed", []),
-            path=res.get("path", []),
+            modules_accessed=visited,
+            path=computed_path,
             latency_ms=float(res.get("latency_ms", 0.0))
         )
 
