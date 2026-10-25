@@ -30,21 +30,21 @@ def render():
         coaccess_cnt = len(signals.coaccess)
 
         def signal_row(label, measured, threshold_label, condition, triggered):
-            dot = "#F59E0B" if triggered else "#10B981"
+            dot = "#C98A2C" if triggered else "#2FA873"
             badge = f'<span class="badge badge-{"amber" if triggered else "green"}">' \
                     f'{"TRIGGERED" if triggered else "NORMAL"}</span>'
             return f"""
             <div class="signal-row">
-              <span class="signal-indicator" style="background:{dot};box-shadow:0 0 8px {dot};"></span>
+              <span class="signal-indicator" style="background:{dot};"></span>
               <div style="flex:1;">
-                <div style="font-size:14px;font-weight:700;color:#FFFFFF;">{label}</div>
+                <div style="font-size:14px;font-weight:600;color:var(--ink);">{label}</div>
                 <div style="font-size:12px;color:var(--ink-soft);margin-top:2px;">{condition}</div>
               </div>
               <div style="text-align:right;">
-                <div class="mono" style="font-size:13px;color:#CBD5E1;font-weight:600;">{measured}</div>
+                <div class="mono" style="font-size:13px;color:var(--ink);">{measured}</div>
                 <div class="mono" style="font-size:11px;color:var(--ink-dim);">{threshold_label}</div>
               </div>
-              <div style="width:90px;text-align:right;">{badge}</div>
+              <div style="width:85px;text-align:right;">{badge}</div>
             </div>
             """
 
@@ -78,26 +78,24 @@ def render():
 
         if not proposals:
             st.markdown("""
-            <div class="panel" style="text-align:center;padding:36px;">
-              <div style="font-size:14px;color:var(--ink-soft);">No structural weaknesses triggered by current telemetry signals. Graph architecture is in equilibrium.</div>
+            <div class="panel" style="text-align:center;padding:32px;">
+              <div style="font-size:14px;color:var(--ink-soft);">No structural weaknesses triggered by current telemetry signals.</div>
             </div>
             """, unsafe_allow_html=True)
         else:
-            op_colors = {"split": "#F59E0B", "merge": "#06B6D4", "shortcut": "#10B981"}
-            op_badges = {"split": "amber", "merge": "cyan", "shortcut": "green"}
+            op_badges = {"split": "amber", "merge": "blue", "shortcut": "green"}
 
             prop_items_html = ""
             for i, p in enumerate(proposals):
-                oc = op_colors.get(p.op.lower(), "#6366F1")
                 ob = op_badges.get(p.op.lower(), "violet")
                 prop_items_html += f"""
-                <div style="padding:16px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);
-                             border-radius:var(--radius);margin-bottom:10px;transition:all 140ms ease-out;">
-                  <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                <div style="padding:14px;border:1px solid var(--border);border-radius:var(--radius-sm);
+                             margin-bottom:8px;background:var(--surface-2);">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                     <span class="badge badge-{ob}">{p.op.upper()}</span>
-                    <span class="mono" style="font-size:13px;color:#F8FAFC;font-weight:600;">{', '.join(p.targets)}</span>
-                    <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#94A3B8;">
-                      signal: <strong style="color:#FFFFFF;">{p.value:.3f}</strong> (thresh: {p.threshold:.3f})
+                    <span class="mono" style="font-size:12px;color:var(--ink);font-weight:600;">{', '.join(p.targets)}</span>
+                    <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-dim);">
+                      signal: {p.value:.3f} (thresh: {p.threshold:.3f})
                     </span>
                   </div>
                   <div style="font-size:13px;color:var(--ink-soft);">{p.reason}</div>
@@ -150,26 +148,26 @@ def render():
             <div class="step-header">
               <div class="step-num">4</div>
               <div class="step-title">Decision Ledger</div>
-              <div class="step-sub">Rollback verification &amp; state audit</div>
+              <div class="step-sub">Rollback verification</div>
             </div>
             """, unsafe_allow_html=True)
 
             dec = res.decision.lower()
             banner_cls = "accepted" if dec == "accepted" else ("rejected" if dec == "rejected" else "neutral")
             icon = "✓" if dec == "accepted" else ("✕" if dec == "rejected" else "•")
-            dec_color = "#34D399" if dec == "accepted" else ("#FB7185" if dec == "rejected" else "#A5B4FC")
+            dec_color = "var(--green)" if dec == "accepted" else ("var(--red)" if dec == "rejected" else "var(--primary)")
 
             st.markdown(f"""
             <div class="decision-banner {banner_cls}">
-              <div style="display:flex;align-items:center;gap:14px;">
-                <span style="font-size:24px;font-weight:800;color:{dec_color};">{icon}</span>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span style="font-size:20px;font-weight:700;color:{dec_color};">{icon}</span>
                 <div>
-                  <div style="font-size:17px;font-weight:700;color:#FFFFFF;">
+                  <div style="font-size:15px;font-weight:700;color:var(--ink);">
                     {res.proposal.get('op','').upper()}  —  {res.decision.upper()}
                   </div>
                   <div style="font-size:13px;color:var(--ink-soft);margin-top:2px;">{res.reason}</div>
                 </div>
-                {('<div style="margin-left:auto;"><span class="badge badge-red" style="font-size:11px;padding:4px 10px;">ROLLED BACK</span></div>' if res.rolled_back else '<div style="margin-left:auto;"><span class="badge badge-green" style="font-size:11px;padding:4px 10px;">COMMITTED</span></div>')}
+                {('<div style="margin-left:auto;"><span class="badge badge-red">ROLLED BACK</span></div>' if res.rolled_back else '<div style="margin-left:auto;"><span class="badge badge-green">COMMITTED</span></div>')}
               </div>
             </div>
             """, unsafe_allow_html=True)
@@ -182,14 +180,14 @@ def render():
 
             def metric_card(label, before, after, delta, unit="", good_if_positive=True):
                 is_good = (delta > 0) if good_if_positive else (delta < 0)
-                dc = "#34D399" if is_good else ("#FB7185" if delta != 0 else "#94A3B8")
+                dc = "var(--green)" if is_good else ("var(--red)" if delta != 0 else "var(--ink-dim)")
                 arrow = "↑" if delta > 0 else ("↓" if delta < 0 else "→")
                 return f"""
                 <div class="stat-card">
                   <div class="stat-label">{label}</div>
                   <div style="display:flex;align-items:baseline;gap:8px;margin-top:8px;">
-                    <div class="stat-num" style="font-size:26px;">{after:.4f}{unit}</div>
-                    <div style="font-size:14px;font-weight:700;color:{dc};">{arrow} {abs(delta):.4f}</div>
+                    <div class="stat-num" style="font-size:24px;">{after:.4f}{unit}</div>
+                    <div style="font-size:13px;font-weight:700;color:{dc};">{arrow} {abs(delta):.4f}</div>
                   </div>
                   <div class="stat-sub">Before: {before:.4f}{unit} | Gate: {config.min_recall:.2f}</div>
                 </div>

@@ -3,14 +3,14 @@ from typing import Dict, Any, List, Optional
 import networkx as nx
 
 TOPIC_COLORS = [
-    "#6366F1",  # Electric Indigo
-    "#06B6D4",  # Cyber Cyan
-    "#10B981",  # Emerald Mint
-    "#F59E0B",  # Amber Gold
-    "#EC4899",  # Neon Pink
-    "#8B5CF6",  # Hyper Violet
-    "#38BDF8",  # Sky Blue
-    "#F97316",  # Sunset Orange
+    "#5E6AD2",  # Slate Iris
+    "#3E8A78",  # Sage Green
+    "#C98A2C",  # Muted Amber
+    "#5A7DA0",  # Steel Blue
+    "#B2586A",  # Dusty Rose
+    "#7A6899",  # Heather Violet
+    "#4A88B5",  # Muted Teal
+    "#8C7B65",  # Warm Taupe
 ]
 
 

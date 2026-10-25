@@ -105,18 +105,18 @@ def render():
         else:
             # Legend
             st.markdown("""
-            <div style="display: flex; gap: 20px; font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; padding: 10px 16px; background: linear-gradient(180deg, rgba(16, 23, 38, 0.8) 0%, rgba(13, 19, 32, 0.9) 100%); border: 1px solid var(--border); border-radius: var(--radius-sm); backdrop-filter: blur(8px);">
+            <div style="display: flex; gap: 20px; font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; padding: 10px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);">
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #6366F1; box-shadow: 0 0 6px rgba(99, 102, 241, 0.6);"></span> Module Node
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--primary);"></span> Module Node
                 </span>
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 10px; height: 10px; border-radius: 50%; border: 2px dashed #F59E0B; box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);"></span> Reconfigured
+                    <span style="width: 10px; height: 10px; border-radius: 50%; border: 2px dashed var(--amber);"></span> Reconfigured
                 </span>
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 16px; height: 2px; background: #38BDF8;"></span> Semantic Pathway
+                    <span style="width: 16px; height: 2px; background: var(--border-bright);"></span> Semantic Pathway
                 </span>
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 16px; height: 2px; border-top: 2px dashed #F59E0B;"></span> Learned Shortcut
+                    <span style="width: 16px; height: 2px; border-top: 2px dashed var(--amber);"></span> Learned Shortcut
                 </span>
             </div>
             """, unsafe_allow_html=True)

@@ -27,30 +27,25 @@ def render_traversal_svg(graph, touched_modules, path):
             x2, y2 = positions[edge[1]]
             edges_svg.append(
                 f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
-                f'stroke="#F59E0B" stroke-width="2.8" stroke-dasharray="6 3" opacity="0.9" filter="drop-shadow(0 0 4px rgba(245,158,11,0.6))"/>'
+                f'stroke="#C98A2C" stroke-width="2" stroke-dasharray="5 3" opacity="0.9"/>'
             )
 
-    node_colors = ["#6366F1", "#06B6D4", "#10B981", "#F59E0B", "#EC4899", "#8B5CF6"]
+    node_colors = ["#5E6AD2", "#3E8A78", "#C98A2C", "#5A7DA0", "#B2586A", "#7A6899"]
     nodes_svg = []
     for i, (nid, (px, py)) in enumerate(positions.items()):
         color = node_colors[i % len(node_colors)]
         label = nid if len(nid) <= 16 else nid[:14] + "…"
         nodes_svg.append(
-            f'<circle cx="{px:.1f}" cy="{py:.1f}" r="22" fill="{color}" opacity="0.2" filter="drop-shadow(0 0 8px {color})"/>'
-            f'<circle cx="{px:.1f}" cy="{py:.1f}" r="15" fill="{color}" opacity="0.95" stroke="#FFFFFF" stroke-width="1.5"/>'
-            f'<text x="{px:.1f}" y="{py + 32:.1f}" text-anchor="middle" '
-            f'font-family="IBM Plex Mono" font-size="11" fill="#E2E8F0" font-weight="600">{label}</text>'
+            f'<circle cx="{px:.1f}" cy="{py:.1f}" r="14" fill="{color}" stroke="var(--surface)" stroke-width="2"/>'
+            f'<text x="{px:.1f}" y="{py + 28:.1f}" text-anchor="middle" '
+            f'font-family="IBM Plex Mono" font-size="10" fill="var(--ink-soft)" font-weight="600">{label}</text>'
         )
 
     return f"""
-    <div style="background:linear-gradient(180deg, rgba(16,23,38,0.85) 0%, rgba(13,19,32,0.95) 100%);
-                border:1px solid var(--border);border-radius:var(--radius-lg);
-                padding:18px;margin:18px 0;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-                   color:var(--ink-soft);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#F59E0B;box-shadow:0 0 6px #F59E0B;"></span>
-        Memory Traversal Pathway Telemetry
-      </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+                padding:16px;margin:16px 0;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+                   color:var(--ink-dim);margin-bottom:12px;">Memory Traversal Pathway</div>
       <svg width="100%" height="{height}" viewBox="0 0 {width} {height}" style="overflow:visible;">
         {''.join(edges_svg)}
         {''.join(nodes_svg)}
@@ -108,31 +103,30 @@ def render():
 
             # ── Summary banner ─────────────────────────────────────────────────
             st.markdown(f"""
-            <div style="display:flex;align-items:center;gap:20px;padding:16px 22px;
-                         background:linear-gradient(180deg, rgba(16,23,38,0.9) 0%, rgba(13,19,32,0.95) 100%);
-                         border:1px solid var(--border);border-radius:var(--radius-lg);margin:16px 0;
-                         box-shadow:0 4px 16px rgba(0,0,0,0.3);">
+            <div style="display:flex;align-items:center;gap:18px;padding:14px 18px;
+                         background:var(--surface);border:1px solid var(--border);
+                         border-radius:var(--radius);margin:16px 0;">
               <div>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:#FFFFFF;">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:700;color:var(--ink);">
                   {len(res.results)}
                 </span>
-                <span style="font-size:12px;color:var(--ink-soft);margin-left:6px;text-transform:uppercase;font-weight:600;">records</span>
+                <span style="font-size:12px;color:var(--ink-soft);margin-left:4px;text-transform:uppercase;">records</span>
               </div>
-              <div style="width:1px;height:32px;background:var(--border);"></div>
+              <div style="width:1px;height:28px;background:var(--border);"></div>
               <div>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:#38BDF8;">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:700;color:var(--ink);">
                   {len(res.modules_accessed)}
                 </span>
-                <span style="font-size:12px;color:var(--ink-soft);margin-left:6px;text-transform:uppercase;font-weight:600;">modules hit</span>
+                <span style="font-size:12px;color:var(--ink-soft);margin-left:4px;text-transform:uppercase;">modules</span>
               </div>
-              <div style="width:1px;height:32px;background:var(--border);"></div>
+              <div style="width:1px;height:28px;background:var(--border);"></div>
               <div>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:#FBBF24;">
-                  {res.latency_ms:.1f}<span style="font-size:14px;color:var(--ink-dim);">ms</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:700;color:var(--amber);">
+                  {res.latency_ms:.1f}<span style="font-size:13px;color:var(--ink-dim);">ms</span>
                 </span>
-                <span style="font-size:12px;color:var(--ink-soft);margin-left:6px;text-transform:uppercase;font-weight:600;">latency</span>
+                <span style="font-size:12px;color:var(--ink-soft);margin-left:4px;text-transform:uppercase;">latency</span>
               </div>
-              <div style="margin-left:auto;font-size:13px;color:#A5B4FC;background:rgba(99,102,241,0.1);padding:4px 12px;border-radius:6px;border:1px solid rgba(99,102,241,0.25);max-width:40ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'IBM Plex Mono',monospace;">
+              <div style="margin-left:auto;font-size:12px;color:var(--ink-soft);background:var(--surface-2);padding:3px 10px;border-radius:4px;border:1px solid var(--border);max-width:36ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'IBM Plex Mono',monospace;">
                 "{res.query}"
               </div>
             </div>
@@ -145,20 +139,20 @@ def render():
                 st.markdown(svg, unsafe_allow_html=True)
 
             # ── Results ────────────────────────────────────────────────────────
-            st.markdown('<div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;margin-top:10px;">Retrieved Knowledge Chunks</div>', unsafe_allow_html=True)
+            st.markdown('<div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;margin-top:8px;">Retrieved Records</div>', unsafe_allow_html=True)
             for rank, item in enumerate(res.results, start=1):
                 score_pct = f"{item.score:.3f}"
-                bar_width = max(6, int(item.score * 100))
+                bar_width = max(4, int(item.score * 100))
                 st.markdown(f"""
                 <div class="result-row">
                   <div class="result-meta">
                     <span class="result-rank">#{rank}</span>
                     <span class="result-id">{item.record_id}</span>
                     <span class="badge badge-violet" style="font-size:10px;">{item.module_id}</span>
-                    <span class="result-score">similarity {score_pct}</span>
+                    <span class="result-score">{score_pct}</span>
                   </div>
-                  <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;margin-bottom:12px;overflow:hidden;">
-                    <div style="height:100%;width:{bar_width}%;background:linear-gradient(90deg, #6366F1, #06B6D4);border-radius:3px;box-shadow:0 0 8px rgba(6,182,212,0.5);"></div>
+                  <div style="height:2px;background:var(--surface-2);border-radius:2px;margin-bottom:10px;overflow:hidden;">
+                    <div style="height:100%;width:{bar_width}%;background:var(--primary);border-radius:2px;"></div>
                   </div>
                   <div class="result-text">{item.text}</div>
                 </div>
