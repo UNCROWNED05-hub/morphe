@@ -16,25 +16,26 @@ GRAPH_HTML = """
 
 GRAPH_CSS = """
 :root {
-  --canvas-bg: #0D1117;
-  --surface: #161B22;
-  --surface-2: #21262D;
-  --border: #30363D;
-  --ink: #F0F6FC;
-  --ink-soft: #8B949E;
-  --primary: #2563EB;
-  --change: #D97706;
+  --canvas-bg: #090E1A;
+  --surface: #101728;
+  --surface-2: #192238;
+  --border: rgba(255, 255, 255, 0.08);
+  --ink: #F8FAFC;
+  --ink-soft: #94A3B8;
+  --primary: #6366F1;
+  --change: #F59E0B;
 }
 
 .morphe-graph-root {
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
   outline: none;
   font-family: 'Atkinson Hyperlegible', sans-serif;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
 .morphe-graph-root:focus-visible {
@@ -45,27 +46,38 @@ GRAPH_CSS = """
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
-  background: var(--surface);
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #131B2E 0%, #101728 100%);
   border-bottom: 1px solid var(--border);
   font-size: 13px;
   color: var(--ink-soft);
+}
+
+.toolbar-info {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #CBD5E1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .tool-btn {
   background: var(--surface-2);
   border: 1px solid var(--border);
   color: var(--ink);
-  padding: 4px 12px;
-  border-radius: 4px;
+  padding: 5px 14px;
+  border-radius: 6px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 120ms ease-out;
+  transition: all 140ms ease-out;
 }
 .tool-btn:hover {
-  background: #28303B;
-  border-color: #484F58;
+  background: #23304E;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 .canvas-wrapper {
@@ -73,7 +85,7 @@ GRAPH_CSS = """
   height: 520px;
   position: relative;
   background: var(--canvas-bg);
-  background-image: radial-gradient(#21262D 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(99, 102, 241, 0.16) 1.4px, transparent 1.4px);
   background-size: 24px 24px;
   overflow: hidden;
 }
@@ -91,17 +103,29 @@ svg:active {
 
 /* Edge styles */
 .edge-semantic {
-  stroke: #3B82F6;
-  stroke-width: 1.5px;
-  opacity: 0.55;
-  transition: stroke 200ms ease-out, stroke-width 200ms ease-out;
+  stroke: #38BDF8;
+  stroke-width: 1.8px;
+  opacity: 0.45;
+  transition: stroke 200ms ease-out, stroke-width 200ms ease-out, opacity 200ms ease-out;
+}
+.edge-semantic:hover {
+  stroke: #38BDF8;
+  stroke-width: 3.5px;
+  opacity: 0.95;
+  cursor: pointer;
 }
 
 .edge-shortcut {
   stroke: var(--change);
-  stroke-width: 2px;
+  stroke-width: 2.5px;
   stroke-dasharray: 6 3;
-  opacity: 0.85;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.6));
+  transition: stroke-width 200ms ease-out;
+}
+.edge-shortcut:hover {
+  stroke-width: 4px;
+  cursor: pointer;
 }
 
 /* Node styles */
@@ -112,48 +136,54 @@ svg:active {
 }
 
 .graph-node circle.main-circle {
-  stroke: var(--surface);
-  stroke-width: 2px;
-  transition: stroke-width 180ms ease-out;
+  stroke: var(--canvas-bg);
+  stroke-width: 2.5px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  transition: stroke 180ms ease-out, stroke-width 180ms ease-out, filter 180ms ease-out;
 }
 
 .graph-node:hover circle.main-circle {
-  stroke: var(--ink);
-  stroke-width: 3px;
+  stroke: #FFFFFF;
+  stroke-width: 3.5px;
+  filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.8));
 }
 
 .graph-node:focus-visible circle.main-circle,
 .graph-node.is-selected circle.main-circle {
-  stroke: var(--ink);
-  stroke-width: 3.5px;
+  stroke: #FFFFFF;
+  stroke-width: 4px;
+  filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.9));
 }
 
 .changed-ring {
   fill: none;
   stroke: var(--change);
-  stroke-width: 2px;
-  stroke-dasharray: 4 2;
+  stroke-width: 2.5px;
+  stroke-dasharray: 5 3;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
 }
 
 .node-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
-  font-weight: 500;
-  fill: var(--ink);
+  font-weight: 600;
+  fill: #E2E8F0;
   text-anchor: middle;
   pointer-events: none;
   user-select: none;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.9));
 }
 
 .node-count {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   fill: #FFFFFF;
   text-anchor: middle;
   dominant-baseline: central;
   pointer-events: none;
   user-select: none;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.8));
 }
 """
 

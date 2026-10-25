@@ -64,8 +64,8 @@ def render():
         if st.session_state.get("last_added_records"):
             recs = st.session_state["last_added_records"]
             items_html = "".join(
-                f'<div style="display:flex;align-items:baseline;gap:10px;padding:6px 0;border-bottom:1px solid var(--border);">'
-                f'<span class="mono" style="font-size:12px;color:var(--violet);font-weight:700;">{r.id}</span>'
+                f'<div style="display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">'
+                f'<span class="mono" style="font-size:12px;color:#A5B4FC;font-weight:700;">{r.id}</span>'
                 f'<span style="font-size:12px;color:var(--ink-dim);">→</span>'
                 f'<span class="badge badge-violet">{r.module_id}</span>'
                 f'<span style="font-size:12px;color:var(--ink-soft);flex:1;">{r.text[:80]}…</span>'
@@ -73,10 +73,11 @@ def render():
                 for r in recs
             )
             st.markdown(f"""
-            <div style="background:var(--surface);border:1px solid rgba(124,106,247,0.3);border-radius:var(--radius);
-                         padding:14px 18px;margin:12px 0;">
-              <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-                           color:var(--violet);margin-bottom:8px;">Ingested {len(recs)} record(s)</div>
+            <div style="background:linear-gradient(180deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.04) 100%);
+                         border:1px solid rgba(99,102,241,0.35);border-radius:var(--radius-lg);
+                         padding:16px 20px;margin:14px 0;box-shadow:0 4px 16px rgba(0,0,0,0.25);">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+                           color:#A5B4FC;margin-bottom:8px;">Ingested {len(recs)} Knowledge Chunk(s)</div>
               {items_html}
             </div>
             """, unsafe_allow_html=True)
@@ -116,7 +117,7 @@ def render():
             st.info("No records match. Load the corpus first or clear filters.")
         else:
             # Topic → color map (deterministic by hash)
-            topic_colors = ["#7C6AF7", "#3DD68C", "#F5A623", "#63B3ED", "#F56565", "#D6BCFA"]
+            topic_colors = ["#6366F1", "#06B6D4", "#10B981", "#F59E0B", "#EC4899", "#8B5CF6"]
             topic_map = {}
             rows_html = ""
             for r in page_records:
@@ -125,11 +126,11 @@ def render():
                 tc = topic_map[r.topic]
                 rows_html += f"""
                 <tr>
-                  <td class="strong mono" style="color:var(--violet);font-size:12px;">{r.id}</td>
+                  <td class="strong mono" style="color:#A5B4FC;font-size:12px;">{r.id}</td>
                   <td><span class="badge badge-violet" style="font-size:10px;">{r.module_id}</span></td>
                   <td><span style="font-size:12px;font-weight:700;color:{tc};">{r.topic}</span></td>
-                  <td style="color:var(--ink);max-width:480px;">{r.text[:100]}{"…" if len(r.text)>100 else ""}</td>
-                  <td class="mono" style="font-size:11px;">{r.source}</td>
+                  <td style="color:#FFFFFF;max-width:480px;">{r.text[:100]}{"…" if len(r.text)>100 else ""}</td>
+                  <td class="mono" style="font-size:11px;color:#94A3B8;">{r.source}</td>
                 </tr>"""
 
             st.markdown(f"""

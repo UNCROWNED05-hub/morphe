@@ -47,8 +47,8 @@ def render():
         )
 
         if view_mode == "Table View":
-            st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 16px;'>Modules (Nodes)</h3>", unsafe_allow_html=True)
-            nodes_table += """
+            st.markdown("<h3 style='font-size: 16px; font-weight: 700; margin-top: 16px; color: #FFFFFF;'>Modules (Nodes)</h3>", unsafe_allow_html=True)
+            nodes_table = """
             <table class="data-table">
                 <thead>
                     <tr>
@@ -66,7 +66,7 @@ def render():
                 <tr>
                     <td class="mono strong">{n['id']}</td>
                     <td>{n['label']}</td>
-                    <td><span class="badge" style="background: var(--surface-2); border: 1px solid var(--border); color: var(--ink);">{n['topic']}</span></td>
+                    <td><span class="badge" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.35); color: #A5B4FC;">{n['topic']}</span></td>
                     <td class="mono">{n['record_count']}</td>
                     <td class="mono">{n['access_count']}</td>
                 </tr>
@@ -74,7 +74,7 @@ def render():
             nodes_table += "</tbody></table>"
             st.markdown(nodes_table, unsafe_allow_html=True)
 
-            st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 24px; color: var(--ink);'>Pathways (Edges)</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='font-size: 16px; font-weight: 700; margin-top: 24px; color: #FFFFFF;'>Pathways (Edges)</h3>", unsafe_allow_html=True)
             edges_table = """
             <table class="data-table">
                 <thead>
@@ -105,18 +105,18 @@ def render():
         else:
             # Legend
             st.markdown("""
-            <div style="display: flex; gap: 20px; font-size: 12px; color: var(--ink-soft); margin-bottom: 12px; padding: 8px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);">
+            <div style="display: flex; gap: 20px; font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; padding: 10px 16px; background: linear-gradient(180deg, rgba(16, 23, 38, 0.8) 0%, rgba(13, 19, 32, 0.9) 100%); border: 1px solid var(--border); border-radius: var(--radius-sm); backdrop-filter: blur(8px);">
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 10px; height: 10px; border-radius: 2px; background: #2563EB;"></span> Semantic Module
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #6366F1; box-shadow: 0 0 6px rgba(99, 102, 241, 0.6);"></span> Module Node
                 </span>
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 10px; height: 10px; border-radius: 2px; border: 2px solid #D97706;"></span> Changed Module
+                    <span style="width: 10px; height: 10px; border-radius: 50%; border: 2px dashed #F59E0B; box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);"></span> Reconfigured
                 </span>
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 14px; height: 2px; background: #3B82F6;"></span> Cluster Pathway
+                    <span style="width: 16px; height: 2px; background: #38BDF8;"></span> Semantic Pathway
                 </span>
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 14px; height: 2px; border-top: 2px dashed #D97706;"></span> Learned Shortcut
+                    <span style="width: 16px; height: 2px; border-top: 2px dashed #F59E0B;"></span> Learned Shortcut
                 </span>
             </div>
             """, unsafe_allow_html=True)

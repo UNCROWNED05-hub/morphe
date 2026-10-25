@@ -11,10 +11,10 @@ toolbarMode = "minimal"
 
 [theme]
 base = "dark"
-primaryColor = "#2563EB"
-backgroundColor = "#0D1117"
-secondaryBackgroundColor = "#161B22"
-textColor = "#F0F6FC"
+primaryColor = "#6366F1"
+backgroundColor = "#090D16"
+secondaryBackgroundColor = "#111726"
+textColor = "#F8FAFC"
 font = "sans serif"
 
 [[theme.fontFaces]]

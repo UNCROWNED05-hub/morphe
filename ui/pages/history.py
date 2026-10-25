@@ -61,7 +61,7 @@ def render():
 
         def compare_cell(before, after, unit=""):
             delta = after - before
-            col = "var(--green)" if delta >= 0 else "var(--red)"
+            col = "#34D399" if delta >= 0 else "#FB7185"
             arrow = "↑" if delta > 0 else ("↓" if delta < 0 else "→")
             return f'<td class="mono">{after:.4f}{unit}</td><td class="mono" style="font-weight:700;color:{col};">{arrow} {abs(delta):.4f}</td>'
 
@@ -98,28 +98,28 @@ def render():
         st.markdown("<hr>", unsafe_allow_html=True)
 
         # ── Version timeline ──────────────────────────────────────────────────
-        st.markdown('<div class="panel-title" style="margin-bottom:4px;">Version timeline</div>', unsafe_allow_html=True)
-        st.markdown('<div class="panel" style="padding:4px 20px;">', unsafe_allow_html=True)
+        st.markdown('<div class="panel-title" style="margin-bottom:8px;">Version Architecture Ledger</div>', unsafe_allow_html=True)
+        st.markdown('<div class="panel" style="padding:8px 22px;">', unsafe_allow_html=True)
 
         for v in reversed(versions):
             status = v.status
-            dot = "#3DD68C" if status == "ACCEPTED" else ("#F56565" if status == "REJECTED" else "#7C6AF7")
+            dot = "#10B981" if status == "ACCEPTED" else ("#F43F5E" if status == "REJECTED" else "#6366F1")
             badge_cls = "badge-green" if status == "ACCEPTED" else ("badge-red" if status == "REJECTED" else "badge-violet")
 
             st.markdown(f"""
             <div class="ver-item">
-              <div class="ver-dot" style="background:{dot};box-shadow:0 0 6px {dot}66;"></div>
+              <div class="ver-dot" style="background:{dot};box-shadow:0 0 8px {dot};"></div>
               <div class="ver-body">
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                  <span class="ver-id">{v.id}</span>
+                  <span class="ver-id" style="color:#FFFFFF;">{v.id}</span>
                   <span style="font-size:13px;color:var(--ink-soft);">{v.operation}</span>
                   <span class="badge {badge_cls}" style="margin-left:auto;">{status}</span>
                 </div>
-                <div class="ver-op">{v.reason}</div>
+                <div class="ver-op" style="color:#94A3B8;">{v.reason}</div>
                 <div class="ver-metrics">
-                  <div class="ver-metric-item">Recall@K <strong>{v.metrics.recall_at_k:.4f}</strong></div>
-                  <div class="ver-metric-item">Precision@K <strong>{v.metrics.precision_at_k:.4f}</strong></div>
-                  <div class="ver-metric-item">Latency <strong>{v.metrics.mean_latency_ms:.1f}ms</strong></div>
+                  <div class="ver-metric-item">Recall@K <strong style="color:#CBD5E1;">{v.metrics.recall_at_k:.4f}</strong></div>
+                  <div class="ver-metric-item">Precision@K <strong style="color:#CBD5E1;">{v.metrics.precision_at_k:.4f}</strong></div>
+                  <div class="ver-metric-item">Latency <strong style="color:#CBD5E1;">{v.metrics.mean_latency_ms:.1f}ms</strong></div>
                 </div>
               </div>
             </div>
