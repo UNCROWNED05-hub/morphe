@@ -129,9 +129,24 @@ def render():
                 on_closed_drawer_change=lambda: None
             )
 
-            # Selection detection
+            # Selection detection with explicit fallback controls
             selected_node = comp_res.selected_node if comp_res and hasattr(comp_res, "selected_node") else None
             selected_edge = comp_res.selected_edge if comp_res and hasattr(comp_res, "selected_edge") else None
+
+            st.write("")
+            c_sel1, c_sel2 = st.columns([1, 1])
+            with c_sel1:
+                node_opts = ["(None selected)"] + [f"{n['id']} | {n['label']} ({n['record_count']} records)" for n in payload["nodes"]]
+                user_node_choice = st.selectbox("Inspect Module Details", node_opts, index=0)
+                if user_node_choice != "(None selected)":
+                    selected_node = user_node_choice.split(" | ")[0]
+            with c_sel2:
+                edge_opts = ["(None selected)"] + [f"{e['source']} <-> {e['target']} [{e['kind']}]" for e in payload["edges"]]
+                user_edge_choice = st.selectbox("Inspect Pathway Details", edge_opts, index=0)
+                if user_edge_choice != "(None selected)":
+                    src, rest = user_edge_choice.split(" <-> ")
+                    tgt = rest.split(" [")[0]
+                    selected_edge = next((e for e in payload["edges"] if (e["source"] == src and e["target"] == tgt) or (e["source"] == tgt and e["target"] == src)), None)
 
             # Inspector Drawer
             if selected_node:

@@ -353,11 +353,42 @@ export default function(component) {
 }
 """
 
-# Registered once at module level as required
-morphe_graph_component = st.components.v2.component(
-    "morphe_graph",
-    html=GRAPH_HTML,
-    css=GRAPH_CSS,
-    js=GRAPH_JS,
-    isolate_styles=True
-)
+import json
+import streamlit.components.v1 as _components
+
+def morphe_graph_component(data, key=None, **kwargs):
+    """Renders interactive NetworkX memory topology SVG graph canvas via Streamlit components.v1."""
+    if not data or not data.get("nodes"):
+        st.info("No nodes in current graph topology.")
+        return None
+
+    payload_json = json.dumps(data)
+    clean_js = GRAPH_JS.replace("export default function(component) {", "function mountGraph() {").replace("const { data, setTriggerValue, setStateValue, parentElement } = component;", "")
+    
+    full_html = f"""<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    {GRAPH_CSS}
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background: transparent; overflow: hidden;">
+  {GRAPH_HTML}
+  <script>
+    (function() {{
+      const data = {payload_json};
+      const parentElement = document.body;
+      function setTriggerValue(key, val) {{
+        console.log('Graph event:', key, val);
+      }}
+      {clean_js}
+      mountGraph();
+    }})();
+  </script>
+</body>
+</html>
+"""
+    _components.html(full_html, height=540)
+    return None
+
