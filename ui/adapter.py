@@ -229,8 +229,16 @@ class EngineAdapter:
         # Adapt from Person 2's engine telemetry
         try:
             weaknesses = self.engine.diagnose_weaknesses() if hasattr(self.engine, "diagnose_weaknesses") else []
-            overloaded = [w["target_module_id"] for w in weaknesses if w.get("operation") == "SPLIT"]
-            redundant_pairs = [[w["target_module_a"], w["target_module_b"]] for w in weaknesses if w.get("operation") == "MERGE"]
+            overloaded = []
+            redundant_pairs = []
+            for w in weaknesses:
+                op = str(w.get("proposed_op", w.get("operation", ""))).upper()
+                targets = w.get("target_modules", [])
+                if op == "SPLIT" and targets:
+                    overloaded.append(targets[0])
+                elif op == "MERGE" and len(targets) >= 2:
+                    redundant_pairs.append([targets[0], targets[1]])
+
             utilization = {mid: m.get("access_count", 0) for mid, m in self.engine.modules.items()}
             coaccess = [
                 {"a": k[0], "b": k[1], "count": count}
@@ -266,20 +274,34 @@ class EngineAdapter:
             weaknesses = self.engine.diagnose_weaknesses()
             proposals = []
             for w in weaknesses:
-                op = w["operation"].lower()
-                targets = []
-                if "target_module_id" in w:
-                    targets = [w["target_module_id"]]
-                elif "target_module_a" in w and "target_module_b" in w:
-                    targets = [w["target_module_a"], w["target_module_b"]]
+                op = str(w.get("proposed_op", w.get("operation", "split"))).lower()
+                targets = w.get("target_modules", [])
+                if not targets:
+                    if "target_module_id" in w:
+                        targets = [w["target_module_id"]]
+                    elif "target_module_a" in w and "target_module_b" in w:
+                        targets = [w["target_module_a"], w["target_module_b"]]
+
+                mv = w.get("measured_value", 0.0)
+                if isinstance(mv, dict):
+                    val = float(mv.get("silhouette_score", mv.get("record_count", 0.0)))
+                else:
+                    val = float(mv)
+
+                tv = w.get("threshold", 0.0)
+                if isinstance(tv, dict):
+                    thresh = float(tv.get("min_silhouette", tv.get("min_size", 0.0)))
+                else:
+                    thresh = float(tv)
+
                 proposals.append(
                     ProposalModel(
                         op=op,
                         targets=targets,
-                        signal=w.get("weakness_type", ""),
-                        value=float(w.get("measured_value", 0.0)),
-                        threshold=float(w.get("threshold_value", 0.0)),
-                        reason=w.get("explanation", "")
+                        signal=w.get("signal", w.get("weakness_type", "")),
+                        value=val,
+                        threshold=thresh,
+                        reason=w.get("description", w.get("explanation", ""))
                     )
                 )
             return proposals

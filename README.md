@@ -534,4 +534,67 @@ Prioritize:
 
 Use pretrained models and lightweight algorithms rather than training a model from scratch. Make claims only when your actual test results support them.
 
-**Source basis:** Uploaded `AIML PS.pdf`, MORPHE problem statement, pages 5–6. This document preserves the stated requirements and separates implementation recommendations from official requirements.
+---
+
+# 14. Dashboard
+
+The MORPHE operator dashboard is an inspection interface built with Streamlit and NetworkX. It visualizes memory graphs, executes semantic queries, displays structural signals, and verifies guarded adaptations against fixed evaluation queries.
+
+### Architecture
+- **Presentation**: Streamlit web interface (`app.py`, `ui/pages/`) with custom SVG canvas component (`st.components.v2.component`).
+- **Adapter Boundary**: `ui/adapter.py` normalizes engine telemetry and responses into typed dataclasses (`ui/models.py`).
+- **Core Engine**: `memory_engine.py` manages memory modules, vector embeddings, and reconfigurable graph state.
+- **Graph Topology**: NetworkX undirected graph representing modules as nodes and semantic pathways or co-access shortcuts as edges.
+
+### Prerequisites and Setup
+1. Create and activate a Python virtual environment:
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate   # Windows
+   # or source .venv/bin/activate on Linux/macOS
+   ```
+2. Install runtime dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Offline Model Execution:
+   Once the embedding model (`all-MiniLM-L6-v2`) has been cached locally, the dashboard runs fully offline:
+   ```bash
+   # Windows PowerShell
+   $env:HF_HUB_OFFLINE = "1"
+   # Linux / macOS
+   export HF_HUB_OFFLINE=1
+   ```
+
+### Running the Dashboard
+Use the included runner scripts to start the server:
+- Windows:
+  ```powershell
+  .\scripts\run.ps1
+  ```
+- Linux / macOS:
+  ```bash
+  ./scripts/run.sh
+  ```
+The dashboard is accessible at `http://localhost:8501`.
+
+### Dashboard Views
+- **Overview**: System status ledger, active graph metrics (modules, records, recall, precision, latency), and quick actions to load corpus or trigger adaptation cycles.
+- **Memory**: Ingestion form to add raw text records, corpus loader, reset confirmation dialog, and paginated records table with metadata and module assignments.
+- **Retrieve**: Semantic search interface with latency reporting, frozen benchmark query chips, and traversal subgraph highlighting touched memory modules.
+- **Graph**: Interactive NetworkX module graph with pan, zoom, node selection, edge inspector drawer, and alternative tabular module/edge view.
+- **Adapt**: Real-time signal detection ledger (overloaded modules, redundancy, co-access), candidate operations, cycle execution with guarded evaluation, baseline comparison, and 16-query ground truth evidence.
+- **History**: Version tree timeline, step chart of Recall@K and Precision@K against the adaptation gate threshold, side-by-side version comparison, and architecture restore.
+- **Privacy & Terms**: Operational disclosures confirming purely local computation, zero telemetry, and ephemeral session storage.
+
+### Testing and Benchmark Verification
+Run the UI test suite:
+```bash
+python -m pytest tests/ui
+```
+Run the slop and formatting linter:
+```bash
+python scripts/lint_slop.py
+```
+Empirical benchmark results and Lighthouse audit scores are documented in [results.json](docs/results.json).
+

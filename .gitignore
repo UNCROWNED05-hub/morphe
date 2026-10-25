@@ -9,3 +9,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 venv/
+.venv/
+MORPHE_Complete_Problem_Statement_and_Build_Brief.md
+lh-*.json
