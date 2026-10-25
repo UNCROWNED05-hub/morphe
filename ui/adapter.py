@@ -328,9 +328,28 @@ class EngineAdapter:
                 params=params,
                 min_recall_threshold=cfg.min_recall
             )
-            before_m = raw_res["baseline_metrics"]
-            after_m = raw_res["evaluation_metrics"]
-            decision = raw_res["status"].lower()
+            decision = raw_res.get("decision", raw_res.get("status", "accepted")).lower()
+            version_id = raw_res.get("version", "")
+            reason = raw_res.get("reason", f"Decision: {decision.upper()}")
+            rolled_back = (decision == "rejected")
+
+            before_recall = raw_res.get("before_recall", 0.0)
+            after_recall = raw_res.get("after_recall", raw_res.get("failed_recall", 0.0))
+            metrics_dict = raw_res.get("metrics", raw_res.get("current_metrics", {}))
+
+            before_m = MetricsModel(
+                recall_at_k=float(before_recall),
+                precision_at_k=float(metrics_dict.get("mean_precision", 0.5)),
+                mean_latency_ms=float(metrics_dict.get("mean_latency_ms", 10.0)),
+                mean_modules_accessed=float(metrics_dict.get("mean_modules_accessed", 2.0))
+            )
+            after_m = MetricsModel(
+                recall_at_k=float(after_recall),
+                precision_at_k=float(metrics_dict.get("mean_precision", 0.5)),
+                mean_latency_ms=float(metrics_dict.get("mean_latency_ms", 10.0)),
+                mean_modules_accessed=float(metrics_dict.get("mean_modules_accessed", 2.0))
+            )
+
             return AdaptationCycleResult(
                 proposal={
                     "op": proposal.op,
@@ -340,22 +359,12 @@ class EngineAdapter:
                     "threshold": proposal.threshold,
                     "reason": proposal.reason
                 },
-                before=MetricsModel(
-                    recall_at_k=before_m["mean_recall"],
-                    precision_at_k=before_m["mean_precision"],
-                    mean_latency_ms=before_m["mean_latency_ms"],
-                    mean_modules_accessed=before_m.get("mean_modules_accessed", 2.0)
-                ),
-                after=MetricsModel(
-                    recall_at_k=after_m["mean_recall"],
-                    precision_at_k=after_m["mean_precision"],
-                    mean_latency_ms=after_m["mean_latency_ms"],
-                    mean_modules_accessed=after_m.get("mean_modules_accessed", 2.0)
-                ),
+                before=before_m,
+                after=after_m,
                 decision=decision,
-                reason=raw_res.get("reason", f"Decision: {raw_res['status']}"),
-                version_id=raw_res.get("version", ""),
-                rolled_back=raw_res.get("rolled_back", decision == "rejected")
+                reason=reason,
+                version_id=version_id,
+                rolled_back=rolled_back
             )
         except Exception as e:
             raise EngineContractError([f"run_adaptation_cycle failed: {e}"], view_name="Adapt")
