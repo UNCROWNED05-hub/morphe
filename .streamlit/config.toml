@@ -1,0 +1,36 @@
+[server]
+enableStaticServing = true
+address = "localhost"
+port = 8501
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#1E4D6B"
+backgroundColor = "#F2F4F0"
+secondaryBackgroundColor = "#E4E8E2"
+textColor = "#0F1B24"
+font = "sans serif"
+
+[[theme.fontFaces]]
+family = "Atkinson Hyperlegible"
+url = "/app/static/fonts/atkinson-hyperlegible-latin-400-normal.woff2"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Atkinson Hyperlegible"
+url = "/app/static/fonts/atkinson-hyperlegible-latin-700-normal.woff2"
+weight = 700
+style = "normal"
+
+[[theme.fontFaces]]
+family = "IBM Plex Mono"
+url = "/app/static/fonts/ibm-plex-mono-latin-400-normal.woff2"
+weight = 400
+style = "normal"

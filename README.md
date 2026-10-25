@@ -1,6 +1,6 @@
 # vjtihack02
 
-# MORPHE — Complete Problem Statement and Build Brief
+# MORPHE  -  Complete Problem Statement and Build Brief
 
 ## Project
 **MORPHE: Memory-Oriented Reconfigurable Plasticity and Hierarchical Evolution**
@@ -308,7 +308,7 @@ Demonstrate that a change can be rejected.
 Example:
 “The proposed merge reduced Recall@5 below the acceptance threshold. The merge was rejected and the previous architecture restored.”
 
-Show a real rejected operation and successful rollback—not only a rollback button.
+Show a real rejected operation and successful rollback - not only a rollback button.
 
 ## 6.3 Compare against a baseline
 Run the same test queries against:
@@ -440,7 +440,7 @@ MORPHE/
 
 ## Suggested division for a two-person team
 
-### Person 1 — UI, visualization, and presentation
+### Person 1  -  UI, visualization, and presentation
 - Build the Streamlit dashboard.
 - Create memory input and query interface.
 - Visualize the actual NetworkX graph.
@@ -449,7 +449,7 @@ MORPHE/
 
 Main file: `app.py`
 
-### Person 2 — Memory engine and evaluation
+### Person 2  -  Memory engine and evaluation
 - Implement ingestion and embeddings.
 - Create modules and graph edges.
 - Implement retrieval and split/merge/shortcut operations.
