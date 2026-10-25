@@ -2,17 +2,8 @@ import streamlit as st
 from ui.adapter import EngineAdapter
 from ui.models import EngineContractError
 
-def render():
-    st.title("Overview")
-    st.markdown("""
-<h2 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 8px;">
-MORPHE reorganizes an AI agent's memory, then checks whether it helped.
-</h2>
-<p style="font-size: 15px; color: var(--ink-soft); max-width: 68ch; line-height: 1.5; margin-bottom: 24px;">
-It splits overloaded modules, merges redundant ones, and adds shortcuts between modules retrieved together. Each change is scored on the same labelled queries and rolled back if retrieval gets worse.
-</p>
-""", unsafe_allow_html=True)
 
+def render():
     try:
         adapter = EngineAdapter()
         config = adapter.get_config()
@@ -21,58 +12,133 @@ It splits overloaded modules, merges redundant ones, and adds shortcuts between 
         versions = adapter.list_versions()
 
         current_ver = versions[-1].id if versions else "V1"
-        last_decision = versions[-1].status if versions else "BASELINE"
+        last_status = versions[-1].status if versions else "BASELINE"
+        status_color = "#3DD68C" if last_status in ("ACCEPTED", "BASELINE", "NEUTRAL") else "#F56565"
 
-        st.markdown("<h3 style='font-size: 17px; font-weight: 600; margin-bottom: 12px;'>Live Architecture State</h3>", unsafe_allow_html=True)
+    except Exception:
+        adapter = None
+        config = None
+        graph = None
+        records = []
+        versions = []
+        current_ver = " - "
+        last_status = "OFFLINE"
+        status_color = "#F56565"
 
-        # Metric ledger table
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Records", len(records))
-            st.caption("Active chunks in storage")
-        with col2:
-            st.metric("Modules", len(graph.nodes))
-            st.caption("Graph module nodes")
-        with col3:
-            st.metric("Connections", len(graph.edges))
-            st.caption("Graph pathway edges")
-        with col4:
-            st.metric("Active Version", current_ver)
-            st.caption(f"Status: {last_decision}")
+    # ── Hero block ──────────────────────────────────────────────────────────────
+    status_badge = f'<span class="badge badge-{"green" if last_status in ("ACCEPTED","BASELINE","NEUTRAL") else "red"}">{last_status}</span>'
+    st.markdown(f"""
+    <div class="hero-block">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;
+               font-weight:700;color:#7C6AF7;letter-spacing:0.1em;text-transform:uppercase;">
+          Active Version: {current_ver}
+        </span>
+        {status_badge}
+      </div>
+      <div class="hero-tagline">Memory that reorganizes itself when retrieval degrades.</div>
+      <div class="hero-sub">
+        MORPHE detects structural weaknesses in an AI agent's memory graph, proposes and applies
+        targeted reconfigurations, then evaluates on frozen queries and rolls back if performance drops.
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-        st.markdown("<hr>", unsafe_allow_html=True)
+    # ── 4-up stat grid ──────────────────────────────────────────────────────────
+    c1, c2, c3, c4 = st.columns(4)
+    stat_cols = [c1, c2, c3, c4]
+    stats = [
+        (len(records), "Records", "knowledge chunks stored"),
+        (len(graph.nodes) if graph else 0, "Modules", "graph nodes"),
+        (len(graph.edges) if graph else 0, "Edges", "retrieval pathways"),
+        (len(versions), "Versions", "adaptation cycles logged"),
+    ]
+    for col, (num, label, sub) in zip(stat_cols, stats):
+        with col:
+            st.markdown(f"""
+            <div class="stat-card">
+              <div class="stat-num">{num}</div>
+              <div class="stat-label">{label}</div>
+              <div class="stat-sub">{sub}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
-        col5, col6, col7, col8 = st.columns(4)
-        with col5:
-            st.metric("Evaluation K", config.k)
-        with col6:
-            st.metric("Min Recall Gate", f"{config.min_recall:.2f}")
-        with col7:
-            st.metric("Embedding Model", config.model)
-        with col8:
-            st.metric("Corpus Label", config.corpus_label)
+    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
 
-        st.markdown("<hr>", unsafe_allow_html=True)
+    # ── Config + action row ─────────────────────────────────────────────────────
+    left, right = st.columns([3, 2])
 
-        # Primary actions
-        act_col1, act_col2 = st.columns([1, 1])
-        with act_col1:
+    with left:
+        if config:
+            st.markdown(f"""
+            <div class="panel">
+              <div class="panel-title">Engine Configuration</div>
+              <table class="data-table">
+                <tr>
+                  <td>Embedding model</td>
+                  <td class="strong mono">{config.model}</td>
+                </tr>
+                <tr>
+                  <td>Retrieval K</td>
+                  <td class="strong mono">{config.k}</td>
+                </tr>
+                <tr>
+                  <td>Min recall gate</td>
+                  <td class="strong mono">{config.min_recall:.2f}</td>
+                </tr>
+                <tr>
+                  <td>Corpus</td>
+                  <td class="strong mono">{config.corpus_label}</td>
+                </tr>
+              </table>
+            </div>
+            """, unsafe_allow_html=True)
+
+    with right:
+        st.markdown('<div class="panel">', unsafe_allow_html=True)
+        st.markdown('<div class="panel-title">Quick Actions</div>', unsafe_allow_html=True)
+        if adapter:
             if len(records) == 0:
-                if st.button("Load sample corpus", type="primary"):
+                if st.button("Load sample corpus", type="primary", use_container_width=True):
                     adapter.load_sample()
                     st.rerun()
+                st.markdown('<div style="font-size:12px;color:var(--ink-dim);margin-top:8px;">No records yet. Load the benchmark corpus to begin.</div>', unsafe_allow_html=True)
             else:
-                if st.button("Run adaptation cycle", type="primary"):
+                if st.button("Run adaptation cycle", type="primary", use_container_width=True):
                     proposals = adapter.propose()
                     if proposals:
                         adapter.run_adaptation_cycle(proposals[0])
                         st.rerun()
                     else:
-                        st.info("No structural weakness currently detected.")
+                        st.info("No structural weakness currently triggered.")
+                if st.button("Go to Adapt view →", type="secondary", use_container_width=True):
+                    st.switch_page("ui/pages/adapt.py")
+        st.markdown('</div>', unsafe_allow_html=True)
 
-    except EngineContractError as err:
-        st.error(f"Engine not connected: {err.missing_fields}")
-    except Exception as e:
-        st.error(f"Engine connection failed: {str(e)}")
+    # ── Version mini-timeline ──────────────────────────────────────────────────
+    if versions:
+        st.markdown("<hr>", unsafe_allow_html=True)
+        st.markdown('<div class="panel-title" style="margin-bottom:12px;">Recent Versions</div>', unsafe_allow_html=True)
+        for v in reversed(versions[-4:]):
+            dot = "#3DD68C" if v.status == "ACCEPTED" else ("#F56565" if v.status == "REJECTED" else "#7C6AF7")
+            st.markdown(f"""
+            <div class="ver-item">
+              <div class="ver-dot" style="background:{dot};margin-top:5px;"></div>
+              <div class="ver-body">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span class="ver-id">{v.id}</span>
+                  <span style="font-size:13px;color:var(--ink-soft);">{v.operation}</span>
+                  <span class="badge badge-{'green' if v.status=='ACCEPTED' else ('red' if v.status=='REJECTED' else 'violet')}"
+                        style="margin-left:auto;">{v.status}</span>
+                </div>
+                <div class="ver-metrics">
+                  <div class="ver-metric-item">Recall@K <strong>{v.metrics.recall_at_k:.4f}</strong></div>
+                  <div class="ver-metric-item">Precision@K <strong>{v.metrics.precision_at_k:.4f}</strong></div>
+                  <div class="ver-metric-item">Latency <strong>{v.metrics.mean_latency_ms:.1f}ms</strong></div>
+                </div>
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
+
 
 render()

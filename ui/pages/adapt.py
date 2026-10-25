@@ -5,215 +5,282 @@ from ui.models import EngineContractError, ProposalModel
 
 
 def render():
-    st.title("Adaptation Pipeline")
-    st.caption("Inspect structural weaknesses, propose heuristic reconfigurations, validate against frozen queries, and guard with automatic rollback.")
+    st.markdown("# Adapt")
+    st.markdown('<div style="font-size:14px;color:var(--ink-soft);margin-bottom:8px;">Detect structural weaknesses, propose reconfigurations, validate on frozen queries, and guard with automatic rollback.</div>', unsafe_allow_html=True)
 
     try:
         adapter = EngineAdapter()
         config = adapter.get_config()
 
-        # Step 1: Detect Signals
-        st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 16px; margin-bottom: 8px;'>1. Detect: Structural Weakness Telemetry</h3>", unsafe_allow_html=True)
+        #                                                                       
+        # STEP 1  -  DETECT
+        #                                                                       
+        st.markdown("""
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Detect</div>
+          <div class="step-sub">Structural weakness telemetry</div>
+        </div>
+        """, unsafe_allow_html=True)
+
         signals = adapter.get_signals()
 
-        sig_table = """
-        <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;">
-            <thead>
-                <tr style="border-bottom: 1px solid var(--rule); text-align: left; color: var(--ink-soft);">
-                    <th style="padding: 6px 4px;">Signal</th>
-                    <th style="padding: 6px 4px;">Measured Value</th>
-                    <th style="padding: 6px 4px;">Threshold</th>
-                    <th style="padding: 6px 4px;">Trigger Condition</th>
-                    <th style="padding: 6px 4px;">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-        """
-        # Overloaded signal
         overloaded_cnt = len(signals.overloaded)
-        sig_table += f"""
-            <tr style="border-bottom: 1px solid rgba(211,217,210,0.5);">
-                <td style="padding: 6px 4px; font-weight: 600;">Module Overload</td>
-                <td class="mono-val" style="padding: 6px 4px;">{overloaded_cnt} modules overloaded</td>
-                <td class="mono-val" style="padding: 6px 4px;">min_size={signals.thresholds.get('split_min_module_size', 10)}, min_sil={signals.thresholds.get('split_min_silhouette', 0.20)}</td>
-                <td style="padding: 6px 4px;">Records &gt; 10 &amp; silhouette &gt; 0.20</td>
-                <td style="padding: 6px 4px;"><span class="status-tag {'status-change' if overloaded_cnt > 0 else 'status-accepted'}">{'TRIGGERED' if overloaded_cnt > 0 else 'NORMAL'}</span></td>
-            </tr>
-        """
-        # Redundancy signal
         redundant_cnt = len(signals.redundant_pairs)
-        sig_table += f"""
-            <tr style="border-bottom: 1px solid rgba(211,217,210,0.5);">
-                <td style="padding: 6px 4px; font-weight: 600;">Module Redundancy</td>
-                <td class="mono-val" style="padding: 6px 4px;">{redundant_cnt} redundant pairs</td>
-                <td class="mono-val" style="padding: 6px 4px;">cosine_threshold={signals.thresholds.get('merge_cosine_threshold', 0.88)}</td>
-                <td style="padding: 6px 4px;">Centroid Cosine Sim &gt; 0.88</td>
-                <td style="padding: 6px 4px;"><span class="status-tag {'status-change' if redundant_cnt > 0 else 'status-accepted'}">{'TRIGGERED' if redundant_cnt > 0 else 'NORMAL'}</span></td>
-            </tr>
-        """
-        # Co-access signal
         coaccess_cnt = len(signals.coaccess)
-        sig_table += f"""
-            <tr style="border-bottom: 1px solid rgba(211,217,210,0.5);">
-                <td style="padding: 6px 4px; font-weight: 600;">Repeated Co-Access</td>
-                <td class="mono-val" style="padding: 6px 4px;">{coaccess_cnt} co-accessed pairs</td>
-                <td class="mono-val" style="padding: 6px 4px;">min_co_access={signals.thresholds.get('shortcut_min_co_access', 2)}</td>
-                <td style="padding: 6px 4px;">Query co-access hits &gt;= 2 &amp; no direct edge</td>
-                <td style="padding: 6px 4px;"><span class="status-tag {'status-change' if coaccess_cnt > 0 else 'status-baseline'}">{'LOGGED' if coaccess_cnt > 0 else 'IDLE'}</span></td>
-            </tr>
-        """
-        sig_table += "</tbody></table>"
-        st.markdown(sig_table, unsafe_allow_html=True)
 
-        st.markdown("<hr>", unsafe_allow_html=True)
+        def signal_row(label, measured, threshold_label, condition, triggered):
+            dot = "#F5A623" if triggered else "#3DD68C"
+            badge = f'<span class="badge badge-{"amber" if triggered else "green"}">' \
+                    f'{"TRIGGERED" if triggered else "NORMAL"}</span>'
+            return f"""
+            <div class="signal-row">
+              <span class="signal-indicator" style="background:{dot};box-shadow:0 0 6px {dot}44;"></span>
+              <div style="flex:1;">
+                <div style="font-size:14px;font-weight:600;color:var(--ink);">{label}</div>
+                <div style="font-size:12px;color:var(--ink-dim);margin-top:2px;">{condition}</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="mono" style="font-size:13px;color:var(--ink-soft);">{measured}</div>
+                <div class="mono" style="font-size:11px;color:var(--ink-dim);">{threshold_label}</div>
+              </div>
+              <div style="width:80px;text-align:right;">{badge}</div>
+            </div>
+            """
 
-        # Step 2: Propose Operations
-        st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-bottom: 8px;'>2. Propose: Candidate Reconfiguration Operations</h3>", unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="panel">
+          {signal_row("Module Overload", f"{overloaded_cnt} overloaded",
+                      f"min_size={signals.thresholds.get('split_min_module_size',10)}, "
+                      f"min_sil={signals.thresholds.get('split_min_silhouette',0.20)}",
+                      "Records > threshold & internal silhouette > threshold", overloaded_cnt > 0)}
+          {signal_row("Module Redundancy", f"{redundant_cnt} redundant pairs",
+                      f"cosine_thresh={signals.thresholds.get('merge_cosine_threshold',0.88)}",
+                      "Centroid cosine similarity above merge threshold", redundant_cnt > 0)}
+          {signal_row("Co-Access Patterns", f"{coaccess_cnt} co-accessed pairs",
+                      f"min_co_access={signals.thresholds.get('shortcut_min_co_access',2)}",
+                      "Query co-access count >= threshold without direct edge", coaccess_cnt > 0)}
+        </div>
+        """, unsafe_allow_html=True)
+
+        #                                                                       
+        # STEP 2  -  PROPOSE
+        #                                                                       
+        st.markdown("""
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Propose</div>
+          <div class="step-sub">Candidate reconfiguration operations</div>
+        </div>
+        """, unsafe_allow_html=True)
+
         proposals = adapter.propose()
 
-        if proposals:
-            prop_options = [f"{p.op.upper()} on {', '.join(p.targets)} (Measured: {p.value:.3f} vs Thresh: {p.threshold:.3f})" for p in proposals]
-            sel_idx = st.selectbox("Select Candidate Proposal", range(len(proposals)), format_func=lambda i: prop_options[i])
+        if not proposals:
+            st.markdown("""
+            <div class="panel" style="text-align:center;padding:32px;">
+              <div style="font-size:14px;color:var(--ink-soft);">No structural weaknesses triggered by current telemetry signals.</div>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            op_colors = {"split": "#F5A623", "merge": "#63B3ED", "shortcut": "#3DD68C"}
+            op_badges = {"split": "amber", "merge": "blue", "shortcut": "green"}
+
+            prop_items_html = ""
+            for i, p in enumerate(proposals):
+                oc = op_colors.get(p.op.lower(), "#7C6AF7")
+                ob = op_badges.get(p.op.lower(), "violet")
+                prop_items_html += f"""
+                <div style="padding:14px;border:1px solid var(--border);border-radius:var(--radius);
+                             margin-bottom:8px;cursor:pointer;">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span class="badge badge-{ob}">{p.op.upper()}</span>
+                    <span class="mono" style="font-size:12px;color:var(--ink-soft);">{', '.join(p.targets)}</span>
+                    <span style="margin-left:auto;font-size:12px;color:var(--ink-dim);">
+                      {p.value:.3f} vs {p.threshold:.3f}
+                    </span>
+                  </div>
+                  <div style="font-size:13px;color:var(--ink-soft);">{p.reason}</div>
+                </div>
+                """
+
+            st.markdown(f'<div class="panel" style="padding:16px;">{prop_items_html}</div>', unsafe_allow_html=True)
+
+            prop_options = [
+                f"{p.op.upper()}  -  {', '.join(p.targets)} (signal: {p.value:.3f})"
+                for p in proposals
+            ]
+            sel_idx = st.selectbox("Select proposal to execute", range(len(proposals)),
+                                    format_func=lambda i: prop_options[i])
             chosen_proposal = proposals[sel_idx]
 
-            st.markdown(f"""
-            <div style="padding: 10px 14px; background: #FFFFFF; border: 1px solid var(--rule); border-radius: 4px; font-size: 13px; margin: 8px 0;">
-                <div><strong>Heuristic Reason:</strong> {chosen_proposal.reason}</div>
+            #                                                                   
+            # STEP 3  -  EVALUATE & DECIDE
+            #                                                                   
+            st.markdown("""
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Evaluate &amp; Decide</div>
+              <div class="step-sub">Run frozen 16-query benchmark before and after</div>
             </div>
             """, unsafe_allow_html=True)
 
-            # Step 3: Evaluate & Decide
-            st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-top: 16px; margin-bottom: 8px;'>3. Evaluate &amp; Decide</h3>", unsafe_allow_html=True)
-            col_eval1, col_eval2 = st.columns([1, 2])
-            with col_eval1:
+            run_btn_col, _ = st.columns([1, 3])
+            with run_btn_col:
                 run_btn = st.button("Run adaptation cycle", type="primary", use_container_width=True)
 
-            eval_placeholder = st.empty()
-
+            eval_ph = st.empty()
             if run_btn:
-                eval_placeholder.markdown("""
-                <div class="skeleton" style="height: 90px; width: 100%; margin: 12px 0;"></div>
-                """, unsafe_allow_html=True)
-
+                eval_ph.markdown(
+                    '<div class="skeleton" style="height:120px;margin:16px 0;"></div>',
+                    unsafe_allow_html=True
+                )
                 cycle_res = adapter.run_adaptation_cycle(chosen_proposal)
                 st.session_state["last_cycle_result"] = cycle_res
-                eval_placeholder.empty()
+                eval_ph.empty()
+                st.rerun()
 
-        else:
-            st.info("No candidate reconfiguration operations currently triggered by telemetry rules.")
-
-        # Show Last Cycle Result
+        #                                                                       
+        # STEP 4  -  DECISION LEDGER
+        #                                                                       
         if "last_cycle_result" in st.session_state:
             res = st.session_state["last_cycle_result"]
-            st.markdown("<hr>", unsafe_allow_html=True)
-            st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-bottom: 8px;'>4. Decision Ledger &amp; Rollback Verification</h3>", unsafe_allow_html=True)
 
-            tag_class = "status-accepted" if res.decision == "accepted" else ("status-baseline" if res.decision == "neutral" else "status-rejected")
-            st.markdown(f"""
-            <div style="padding: 12px; background: #FFFFFF; border: 1px solid var(--rule); border-radius: 4px; margin-bottom: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 700; font-size: 14px;">Operation: {res.proposal.get('op', '').upper()}</span>
-                    <span class="status-tag {tag_class}">{res.decision.upper()}</span>
-                </div>
-                <div style="font-size: 13px; color: var(--ink-soft); margin-top: 6px;">{res.reason}</div>
-                {f'<div class="status-tag status-rejected" style="margin-top: 8px;">Rolled back to previous version: Graph restored.</div>' if res.rolled_back else ''}
+            st.markdown("""
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Decision Ledger</div>
+              <div class="step-sub">Rollback verification</div>
             </div>
             """, unsafe_allow_html=True)
 
-            # Metrics ledger before vs after with threshold tick
-            m_col1, m_col2, m_col3 = st.columns(3)
-            delta_recall = res.after.recall_at_k - res.before.recall_at_k
-            word = "up" if delta_recall > 0 else ("down" if delta_recall < 0 else "neutral")
-            with m_col1:
-                st.metric("Recall@K", f"{res.after.recall_at_k:.4f}", f"{word} {abs(delta_recall):.4f}")
-                st.caption(f"Before: {res.before.recall_at_k:.4f} | Gate Tick: {config.min_recall:.2f}")
-            with m_col2:
-                delta_prec = res.after.precision_at_k - res.before.precision_at_k
-                st.metric("Precision@K", f"{res.after.precision_at_k:.4f}", f"{'+' if delta_prec>=0 else ''}{delta_prec:.4f}")
-                st.caption(f"Before: {res.before.precision_at_k:.4f}")
-            with m_col3:
-                st.metric("Latency", f"{res.after.mean_latency_ms:.2f} ms")
-                st.caption(f"Before: {res.before.mean_latency_ms:.2f} ms")
+            dec = res.decision.lower()
+            banner_cls = "accepted" if dec == "accepted" else ("rejected" if dec == "rejected" else "neutral")
+            icon = "ok" if dec == "accepted" else (" " if dec == "rejected" else "~")
+            dec_color = "var(--green)" if dec == "accepted" else ("var(--red)" if dec == "rejected" else "var(--violet)")
+
+            st.markdown(f"""
+            <div class="decision-banner {banner_cls}">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span style="font-size:22px;font-weight:700;color:{dec_color};">{icon}</span>
+                <div>
+                  <div style="font-size:16px;font-weight:700;color:var(--ink);">
+                    {res.proposal.get('op','').upper()}  -  {res.decision.upper()}
+                  </div>
+                  <div style="font-size:13px;color:var(--ink-soft);margin-top:2px;">{res.reason}</div>
+                </div>
+                {('<div style="margin-left:auto;"><span class="badge badge-red">ROLLED BACK</span></div>' if res.rolled_back else '')}
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            # Metrics diff
+            m1, m2, m3 = st.columns(3)
+            delta_r = res.after.recall_at_k - res.before.recall_at_k
+            delta_p = res.after.precision_at_k - res.before.precision_at_k
+            delta_l = res.after.mean_latency_ms - res.before.mean_latency_ms
+
+            def metric_card(label, before, after, delta, unit="", good_if_positive=True):
+                dc = "var(--green)" if (delta > 0) == good_if_positive else ("var(--red)" if delta != 0 else "var(--ink-dim)")
+                arrow = " " if delta > 0 else (" " if delta < 0 else " ")
+                return f"""
+                <div class="stat-card">
+                  <div class="stat-label">{label}</div>
+                  <div style="display:flex;align-items:baseline;gap:8px;margin-top:8px;">
+                    <div class="stat-num" style="font-size:26px;">{after:.4f}{unit}</div>
+                    <div style="font-size:14px;font-weight:700;color:{dc};">{arrow} {abs(delta):.4f}</div>
+                  </div>
+                  <div class="stat-sub">Before: {before:.4f}{unit} | Gate: {config.min_recall:.2f}</div>
+                </div>
+                """
+
+            with m1:
+                st.markdown(metric_card("Recall@K", res.before.recall_at_k, res.after.recall_at_k, delta_r), unsafe_allow_html=True)
+            with m2:
+                st.markdown(metric_card("Precision@K", res.before.precision_at_k, res.after.precision_at_k, delta_p), unsafe_allow_html=True)
+            with m3:
+                st.markdown(metric_card("Latency", res.before.mean_latency_ms, res.after.mean_latency_ms, delta_l, "ms", False), unsafe_allow_html=True)
 
         st.markdown("<hr>", unsafe_allow_html=True)
 
-        # Baseline Comparison Table
-        st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-bottom: 8px;'>Baseline Comparison (Fixed vs Adaptive)</h3>", unsafe_allow_html=True)
+        #    Baseline comparison table                                          
+        st.markdown('<div class="panel-title" style="margin-bottom:12px;">Baseline Comparison</div>', unsafe_allow_html=True)
         baseline_data = adapter.baseline_evaluate()
         if "flat_baseline" in baseline_data and "current_morphe" in baseline_data:
             fb = baseline_data["flat_baseline"]
             cm = baseline_data["current_morphe"]
             d = baseline_data.get("delta", {})
 
+            def delta_cell(val):
+                col = "var(--green)" if val >= 0 else "var(--red)"
+                return f'<td class="mono strong" style="color:{col};">{val:+.4f}</td>'
+
             st.markdown(f"""
-            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
-                <thead>
-                    <tr style="border-bottom: 1px solid var(--rule); text-align: left; color: var(--ink-soft);">
-                        <th style="padding: 6px 4px;">Metric</th>
-                        <th style="padding: 6px 4px;">Flat Vector Baseline</th>
-                        <th style="padding: 6px 4px;">MORPHE Graph Memory</th>
-                        <th style="padding: 6px 4px;">Delta</th>
-                    </tr>
-                </thead>
+            <div class="panel" style="padding:0;overflow:hidden;">
+              <table class="data-table">
+                <thead><tr>
+                  <th>Metric</th>
+                  <th>Flat vector baseline</th>
+                  <th>MORPHE (current)</th>
+                  <th>Delta</th>
+                </tr></thead>
                 <tbody>
-                    <tr style="border-bottom: 1px solid rgba(211,217,210,0.5);">
-                        <td style="padding: 6px 4px; font-weight: 600;">Mean Recall@K</td>
-                        <td class="mono-val" style="padding: 6px 4px;">{fb.get('mean_recall', 0):.4f}</td>
-                        <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{cm.get('mean_recall', 0):.4f}</td>
-                        <td class="mono-val" style="padding: 6px 4px; color: {'var(--accepted)' if d.get('recall_delta', 0)>=0 else 'var(--rejected)'};">{d.get('recall_delta', 0):+.4f}</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(211,217,210,0.5);">
-                        <td style="padding: 6px 4px; font-weight: 600;">Mean Precision@K</td>
-                        <td class="mono-val" style="padding: 6px 4px;">{fb.get('mean_precision', 0):.4f}</td>
-                        <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{cm.get('mean_precision', 0):.4f}</td>
-                        <td class="mono-val" style="padding: 6px 4px;">{d.get('precision_delta', 0):+.4f}</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(211,217,210,0.5);">
-                        <td style="padding: 6px 4px; font-weight: 600;">Mean Query Latency</td>
-                        <td class="mono-val" style="padding: 6px 4px;">{fb.get('mean_latency_ms', 0):.2f} ms</td>
-                        <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{cm.get('mean_latency_ms', 0):.2f} ms</td>
-                        <td class="mono-val" style="padding: 6px 4px;">{d.get('latency_delta_ms', 0):+.2f} ms</td>
-                    </tr>
+                  <tr>
+                    <td class="strong">Mean Recall@K</td>
+                    <td class="mono">{fb.get('mean_recall',0):.4f}</td>
+                    <td class="mono strong">{cm.get('mean_recall',0):.4f}</td>
+                    {delta_cell(d.get('recall_delta',0))}
+                  </tr>
+                  <tr>
+                    <td class="strong">Mean Precision@K</td>
+                    <td class="mono">{fb.get('mean_precision',0):.4f}</td>
+                    <td class="mono strong">{cm.get('mean_precision',0):.4f}</td>
+                    {delta_cell(d.get('precision_delta',0))}
+                  </tr>
+                  <tr>
+                    <td class="strong">Mean Latency</td>
+                    <td class="mono">{fb.get('mean_latency_ms',0):.2f} ms</td>
+                    <td class="mono strong">{cm.get('mean_latency_ms',0):.2f} ms</td>
+                    <td class="mono">{d.get('latency_delta_ms',0):+.2f} ms</td>
+                  </tr>
                 </tbody>
-            </table>
+              </table>
+            </div>
             """, unsafe_allow_html=True)
 
+        #    Per-query evidence table                                            
         st.markdown("<hr>", unsafe_allow_html=True)
-
-        # Per-Query Evidence Table
-        st.markdown("<h3 style='font-size: 16px; font-weight: 600; margin-bottom: 8px;'>Per-Query Evidence (Frozen Benchmark)</h3>", unsafe_allow_html=True)
-        eval_res = adapter.evaluate()
-        with st.expander("Expand 16-Query Ground Truth Evaluation Evidence Table"):
-            st.markdown("""
-            <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
-                <thead>
-                    <tr style="border-bottom: 1px solid var(--rule); text-align: left; color: var(--ink-soft);">
-                        <th style="padding: 6px 4px;">Query</th>
-                        <th style="padding: 6px 4px;">Expected Records</th>
-                        <th style="padding: 6px 4px;">Retrieved Records</th>
-                        <th style="padding: 6px 4px;">Recall</th>
-                        <th style="padding: 6px 4px;">Precision</th>
-                        <th style="padding: 6px 4px;">Latency</th>
-                    </tr>
-                </thead>
-                <tbody>
-            """, unsafe_allow_html=True)
+        with st.expander("16-Query Frozen Benchmark Evidence"):
+            eval_res = adapter.evaluate()
+            rows = ""
             for pq in eval_res.per_query:
-                st.markdown(f"""
-                <tr style="border-bottom: 1px solid rgba(211,217,210,0.4);">
-                    <td style="padding: 6px 4px;">{pq.query}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{', '.join(pq.expected)}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{', '.join(pq.retrieved)}</td>
-                    <td class="mono-val" style="padding: 6px 4px; font-weight: 600;">{pq.recall:.2f}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{pq.precision:.2f}</td>
-                    <td class="mono-val" style="padding: 6px 4px;">{pq.latency_ms:.2f} ms</td>
-                </tr>
-                """, unsafe_allow_html=True)
-            st.markdown("</tbody></table>", unsafe_allow_html=True)
+                rc = "var(--green)" if pq.recall >= 0.75 else ("var(--amber)" if pq.recall >= 0.5 else "var(--red)")
+                rows += f"""
+                <tr>
+                  <td style="max-width:240px;">{pq.query}</td>
+                  <td class="mono" style="font-size:11px;">{', '.join(pq.expected)}</td>
+                  <td class="mono" style="font-size:11px;">{', '.join(pq.retrieved)}</td>
+                  <td class="mono strong" style="color:{rc};">{pq.recall:.2f}</td>
+                  <td class="mono">{pq.precision:.2f}</td>
+                  <td class="mono">{pq.latency_ms:.1f}ms</td>
+                </tr>"""
+
+            st.markdown(f"""
+            <div class="panel" style="padding:0;overflow:hidden;">
+              <table class="data-table">
+                <thead><tr>
+                  <th>Query</th><th>Expected</th><th>Retrieved</th>
+                  <th>Recall</th><th>Precision</th><th>Latency</th>
+                </tr></thead>
+                <tbody>{rows}</tbody>
+              </table>
+            </div>
+            """, unsafe_allow_html=True)
 
     except EngineContractError as err:
         st.error(f"Engine not connected: {err.missing_fields}")
     except Exception as e:
-        st.error(f"Error in adaptation pipeline: {str(e)}")
+        st.error(f"Error: {e}")
+
 
 render()

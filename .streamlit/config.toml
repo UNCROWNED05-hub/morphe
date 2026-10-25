@@ -10,11 +10,11 @@ gatherUsageStats = false
 toolbarMode = "minimal"
 
 [theme]
-base = "light"
-primaryColor = "#1E4D6B"
-backgroundColor = "#F2F4F0"
-secondaryBackgroundColor = "#E4E8E2"
-textColor = "#0F1B24"
+base = "dark"
+primaryColor = "#7C6AF7"
+backgroundColor = "#0A0A0F"
+secondaryBackgroundColor = "#111118"
+textColor = "#E8E8F0"
 font = "sans serif"
 
 [[theme.fontFaces]]
